@@ -1,0 +1,20 @@
+body {
+	background-color: white;
+	}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 290px;
+  height: 290px;
+  margin: 5px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 290px;
+}
