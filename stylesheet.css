@@ -76,7 +76,7 @@ body {
 .menu__item--active.menu__item--yellow { background: #fabe2b; }
 .menu__item--active.menu__item--red { background: #f15b28; } 
 .menu__item--active.menu__item--green { background: #7ebe42; } 
-.menu__item--active.menu__item--purple { background: #c152da; }
+.menu__item--active.menu__item--grey { background: #9aa5ac; }
 
 .menu__item svg {
 	fill: #a6a6a6;
@@ -129,30 +129,30 @@ a:active {
 }
 
 /* Column container for data vizualizations*/
-.row {  
+.container {  
 	display: flex;
 	flex-wrap: wrap;
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.main {
-	flex: 45%;
-	border-style: solid;
-	border-color: black;
-	padding: 5px;
-}
-
+/* Create two equal columns that sits next to each other */
 /* Main column */
-.side {
+.left {
 	flex: 45%;
 	border-style: solid;
 	border-color: black;
 	padding: 5px;
 }
 
-/* div container to hold main data viz*/
-.main-viz {
+/* Sidebar/left column */
+.right {
+	flex: 45%;
+	border-style: solid;
+	border-color: black;
+	padding: 5px;
+}
+
+/* div container to hold left data viz*/
+.D1-D2-D7 {
   background-color: white;
   border-style: solid;
   border-color: black;
@@ -161,6 +161,32 @@ a:active {
   height: 390px;
 }
 
+/* div to contain drop down selector */
+.D8-selector {
+	height: 25px;
+	width: 100%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+/* div container to hold smaller viz boxes */
+.parent-D3-D4-D5-D6 {  
+	display: flex;
+	flex-wrap: wrap;
+	height: 390px;
+}
+
+/* divs for smaller viz boxes */
+.D3-D4-D5-D6 {
+	flex: 45%;
+	height: 195px;
+	/*position: relative;*/
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+	padding: 1px;
+}
 
 /* Footer */
 .row-footer {  
@@ -189,11 +215,11 @@ a:active {
 
 /* Responsive layout - when the screen is less than 700px wide, make navigation menu stack on top of one another */
 @media screen and (max-width: 700px) {
-	.menu, .row {   
+	.container {   
 		flex-direction: column;
 	}
 	.menu__item {
-		margin-left: 0;
+		margin-left: 0.44rem;
 		margin-top: 0.44rem; 
 		margin-bottom: 0.44rem;
 	}
