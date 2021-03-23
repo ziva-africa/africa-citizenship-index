@@ -3,8 +3,17 @@
 Load initial 'home page' google charts
 **********
 */
-//google.charts.load('current', {packages: ['corechart', 'bar']});
-//google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
+
+//Load bar chart library and draw stacked bar
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
+
+//Load gauge chart library
+google.charts.load('current', {'packages':['gauge']});
+
+//Load donut chart library
+google.charts.load('current', {packages:['corechart']});
+
 
 /*  
 **********
@@ -14,17 +23,17 @@ Code for the changing colour of the navigation bar
 const menuItems = document.querySelectorAll('.menu__item');
 let menuItemActive = document.querySelector('.menu__item--active');
 
-// For loop to loop through menu items
+//For loop to loop through menu items
 for (let i = 0; i < menuItems.length; i++) {
 	menuItems[i].addEventListener('click', changeColour);
 	menuItems[i].addEventListener('click', changeLayout);
-	//menuItems[i].addEventListener('click', changeCharts);
+	menuItems[i].addEventListener('click', changeCharts);
 };
 
 //Function to run on button click to change active menu item, background colour and heading text
 function changeColour() {
 	if (!this.classList.contains('menu__item--active')) {
-		document.body.style.backgroundColor = `#${this.getAttribute('data-background')}`;
+		document.querySelector('.madzibaba').style.backgroundColor = `#${this.getAttribute('data-background')}`;
 		document.querySelector('h1').remove();
 		menuItemActive.classList.remove('menu__item--active');
 	
@@ -57,7 +66,7 @@ Code for the changing layout based on user selection
 //Function to change layout based on user selection
 function changeLayout() {
 	let d1Test = document.getElementById('D1');
-	let d7Test = document.getElementById('D7');
+	let d4Test = document.getElementById('D4');
 	
 	//Change layout when moving from colour to colour
 	if ((!this.classList.contains('menu__item--yellow')) && (typeof(d1Test) != 'undefined' && d1Test != null)) {
@@ -67,46 +76,36 @@ function changeLayout() {
 		
 		//Create div for city selector
 		const selector = document.createElement('div');
-		selector.setAttribute('class', 'D8-selector');
-		selector.setAttribute('id', 'D8');
+		selector.setAttribute('class', 'D5-selector');
+		selector.setAttribute('id', 'D5');
 		document.querySelector('.container').prepend(selector);
-		//document.querySelector('.container').appendChild(selector);
 		
-		//Create D7 div
-		const d7 = document.createElement('div');
-		d7.setAttribute('class', 'D1-D2-D7');
-		d7.setAttribute('id', 'D7');
-		document.querySelector('.right').appendChild(d7);
+		//Add dropdown city menu
+		document.getElementById('D5').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
 		
-		//Create parent div for small viz boxes
-		const parentForSmallVizBoxes = document.createElement('div');
-		parentForSmallVizBoxes.setAttribute('class', 'parent-D3-D4-D5-D6');
-		document.querySelector('.left').appendChild(parentForSmallVizBoxes);
+		//Create D3 and D4 div
+		const d3 = document.createElement('div');
+		d3.setAttribute('class', 'D3-D4');
+		d3.setAttribute('id', 'D3');
+		document.querySelector('.left').appendChild(d3);
+		const d4 = document.createElement('div');
+		d4.setAttribute('class', 'D3-D4');
+		d4.setAttribute('id', 'D4');
+		document.querySelector('.right').appendChild(d4);
 		
-		//For loop to create divs in left section
-		for (let i = 0; i < 4; i++) {	
-			const smallVizBoxes = document.createElement('div');
-			smallVizBoxes.setAttribute('class', 'D3-D4-D5-D6');
-			smallVizBoxes.setAttribute('id', 'D' + (i+3));
-			document.querySelector('.parent-D3-D4-D5-D6').appendChild(smallVizBoxes);
-		};
-	} else if ((this.classList.contains('menu__item--yellow')) && (typeof(d7Test) != 'undefined' && d7Test != null)) {
+	} else if ((this.classList.contains('menu__item--yellow')) && (typeof(d4Test) != 'undefined' && d4Test != null)) {
 		document.getElementById('D3').remove();
 		document.getElementById('D4').remove();
 		document.getElementById('D5').remove();
-		document.getElementById('D6').remove();
-		document.getElementById('D7').remove();
-		document.getElementById('D8').remove();
-		document.querySelector('.parent-D3-D4-D5-D6').remove();
 		
 		//Re-create home page layout
 		const d1 = document.createElement('div');
-		d1.setAttribute('class', 'D1-D2-D7');
+		d1.setAttribute('class', 'D1-D2');
 		d1.setAttribute('id', 'D1');
 		document.querySelector('.left').appendChild(d1);
 		
 		const d2 = document.createElement('div');
-		d2.setAttribute('class', 'D1-D2-D7');
+		d2.setAttribute('class', 'D1-D2');
 		d2.setAttribute('id', 'D2');
 		document.querySelector('.right').appendChild(d2);
 	}
@@ -117,27 +116,71 @@ function changeLayout() {
 Code for the changing google charts based on user selection
 **********
 */
-/*
-//Function to update charts based on user selection
+
 function changeCharts() {
-	document.getElementById('d1').remove();
-	if (this.classList.contains('menu__item--yellow')) {
-			drawScoreSummaryStackedBar();
-	}	else if (this.classList.contains('menu__item--red')) {
-			drawPoliticsStackedBar();
-	}	else if (this.classList.contains('menu__item--green')) {
-			drawEconomyStackedBar();
-	}	else if (this.classList.contains('menu__item--grey')) {
-			drawSocialStackedBar();
+	if (menuItemActive.classList.contains('menu__item--yellow')) {
+		google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
+	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('city').value == 'hre') { 
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+		google.charts.setOnLoadCallback(drawPoliticsGaugeHre);
+		google.charts.setOnLoadCallback(drawPoliticsDonutHre);
+	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('city').value == 'byo') {
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+		google.charts.setOnLoadCallback(drawPoliticsGaugeByo);
+		google.charts.setOnLoadCallback(drawPoliticsDonutByo);
+	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('city').value == 'gwe') {
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+		google.charts.setOnLoadCallback(drawPoliticsGaugeGwe);
+		google.charts.setOnLoadCallback(drawPoliticsDonutGwe);
+	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('city').value == 'mut') {
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+		google.charts.setOnLoadCallback(drawPoliticsGaugeMut);
+		google.charts.setOnLoadCallback(drawPoliticsDonutMut);
+	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('city').value == 'hre') {
+		//alert('Economy - Harare');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('city').value == 'byo') {
+		//alert('Economy - Bulawayo');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('city').value == 'gwe') {
+		//alert('Economy - Gweru');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('city').value == 'mut') {
+		//alert('Economy - Mutare');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--grey') && document.getElementById('city').value == 'hre') {
+		//alert('Social - Harare');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--grey') && document.getElementById('city').value == 'byo') {
+		//alert('Social - Bulawayo');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--grey') && document.getElementById('city').value == 'gwe') {
+		//alert('Social - Gweru');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
+	} else if (menuItemActive.classList.contains('menu__item--grey') && document.getElementById('city').value == 'mut') {
+		//alert('Social - Mutare');
+		document.getElementById('D3').innerHTML = ''
+		document.getElementById('D4').innerHTML = ''
 	}
 };
-*/
+
 /*  
 **********
 Code for Google Charts - Summary Section
 **********
 */
-/*
+
 //Main bar graph in summary section 
 function drawScoreSummaryStackedBar() {
 	const data = google.visualization.arrayToDataTable([
@@ -169,15 +212,330 @@ function drawScoreSummaryStackedBar() {
 		//colors: ['#f15b28', '#7ebe42', '#9aa5ac']
 	};
     
-	const elem = document.createElement('div');
-	elem.setAttribute("style", "width: 100%; height: 100%; padding: 0; margin: 0;");
-	elem.setAttribute("id", "d1");
-	
-	document.querySelector('.main-viz').appendChild(elem);
-	const scoreSummaryStackedBar = new google.visualization.BarChart(elem);
+	const scoreSummaryStackedBar = new google.visualization.BarChart(document.getElementById('D1'));
 	scoreSummaryStackedBar.draw(data, options);
 };
+
+/*  
+**********
+Code for Google Charts - Politics Section
+**********
 */
+
+function drawPoliticsGaugeHre() {
+	const data = google.visualization.arrayToDataTable([
+		['City', 'Political Score'],
+		['Harare', 3.2]
+		//['Bulawayo', 3.7],
+		//['Gweru', 2.7]
+		//['Mutare', 2.1]
+	]);
+
+	const options = {
+		width: 260, height: 260,
+		redFrom: 4.5, redTo: 5,
+		yellowFrom:4, yellowTo: 4.5,
+		greenFrom: 3.5, greenTo: 4,
+		max: 5,
+		min: 0
+	};
+	
+	const scoreDiv = document.createElement('div');
+	document.getElementById('D3').appendChild(scoreDiv);
+	scoreDiv.innerHTML = '<p class="score-label" style="font-size:22px; margin-bottom:0;">Score:</p><p style="font-size:60px; margin:0;">3.2</p>'
+		
+	const gaugeDiv = document.createElement('div');
+	gaugeDiv.setAttribute('id', 'gauge-div');
+	gaugeDiv.setAttribute('width', '270px');
+	gaugeDiv.setAttribute('style', 'display:inline-block; margin:0 auto;');
+	document.getElementById('D3').appendChild(gaugeDiv);
+	const politicsGaugeChart = new google.visualization.Gauge(document.getElementById('gauge-div'));
+	politicsGaugeChart.draw(data, options);
+};
+
+function drawPoliticsGaugeByo() {
+	const data = google.visualization.arrayToDataTable([
+		['City', 'Political Score'],
+		//['Harare', 3.2]
+		['Bulawayo', 3.7],
+		//['Gweru', 2.7]
+		//['Mutare', 2.1]
+	]);
+
+	const options = {
+		width: 260, height: 260,
+		redFrom: 4.5, redTo: 5,
+		yellowFrom:4, yellowTo: 4.5,
+		greenFrom: 3.5, greenTo: 4,
+		max: 5,
+		min: 0
+	};
+	
+	const scoreDiv = document.createElement('div');
+	document.getElementById('D3').appendChild(scoreDiv);
+	scoreDiv.innerHTML = '<p class="score-label" style="font-size:22px; margin-bottom:0;">Score:</p><p style="font-size:60px; margin:0;">3.7</p>'
+		
+	const gaugeDiv = document.createElement('div');
+	gaugeDiv.setAttribute('id', 'gauge-div');
+	gaugeDiv.setAttribute('width', '270px');
+	gaugeDiv.setAttribute('style', 'display:inline-block; margin:0 auto;');
+	document.getElementById('D3').appendChild(gaugeDiv);
+	const politicsGaugeChart = new google.visualization.Gauge(document.getElementById('gauge-div'));
+	politicsGaugeChart.draw(data, options);
+};
+
+function drawPoliticsGaugeGwe() {
+	const data = google.visualization.arrayToDataTable([
+		['City', 'Political Score'],
+		//['Harare', 3.2]
+		//['Bulawayo', 3.7],
+		['Gweru', 2.7]
+		//['Mutare', 2.1]
+	]);
+
+	const options = {
+		width: 260, height: 260,
+		redFrom: 4.5, redTo: 5,
+		yellowFrom:4, yellowTo: 4.5,
+		greenFrom: 3.5, greenTo: 4,
+		max: 5,
+		min: 0
+	};
+	
+	const scoreDiv = document.createElement('div');
+	document.getElementById('D3').appendChild(scoreDiv);
+	scoreDiv.innerHTML = '<p class="score-label" style="font-size:22px; margin-bottom:0;">Score:</p><p style="font-size:60px; margin:0;">2.7</p>'
+		
+	const gaugeDiv = document.createElement('div');
+	gaugeDiv.setAttribute('id', 'gauge-div');
+	gaugeDiv.setAttribute('width', '270px');
+	gaugeDiv.setAttribute('style', 'display:inline-block; margin:0 auto;');
+	document.getElementById('D3').appendChild(gaugeDiv);
+	const politicsGaugeChart = new google.visualization.Gauge(document.getElementById('gauge-div'));
+	politicsGaugeChart.draw(data, options);
+};
+
+function drawPoliticsGaugeMut() {
+	const data = google.visualization.arrayToDataTable([
+		['City', 'Political Score'],
+		//['Harare', 3.2]
+		//['Bulawayo', 3.7],
+		//['Gweru', 2.7]
+		['Mutare', 2.1]
+	]);
+
+	const options = {
+		width: 260, height: 260,
+		redFrom: 4.5, redTo: 5,
+		yellowFrom:4, yellowTo: 4.5,
+		greenFrom: 3.5, greenTo: 4,
+		max: 5,
+		min: 0
+	};
+	
+	const scoreDiv = document.createElement('div');
+	document.getElementById('D3').appendChild(scoreDiv);
+	scoreDiv.innerHTML = '<p class="score-label" style="font-size:22px; margin-bottom:0;">Score:</p><p style="font-size:60px; margin:0;">2.1</p>'
+		
+	const gaugeDiv = document.createElement('div');
+	gaugeDiv.setAttribute('id', 'gauge-div');
+	gaugeDiv.setAttribute('width', '270px');
+	gaugeDiv.setAttribute('style', 'display:inline-block; margin:0 auto;');
+	document.getElementById('D3').appendChild(gaugeDiv);
+	const politicsGaugeChart = new google.visualization.Gauge(document.getElementById('gauge-div'));
+	politicsGaugeChart.draw(data, options);
+};
+
+function drawPoliticsDonutHre() {
+	const data = google.visualization.arrayToDataTable([
+		['Gender', 'Hours per Day'],
+		['Male',     9],
+		['Female',      19]
+	]);
+
+	const options = { 
+		chartArea: {
+			width: '70%',
+			height: '70%',
+		},
+		title: 'Gender of Office Holders in Political Networks',
+		pieHole: 0.4,
+		slices: {
+			0: { color: '#f15b28' },
+			1: { color: '#7ebe42' }
+		},
+		legend: {
+			position: 'bottom',
+			textStyle: {
+				fontSize: 16
+			}
+		},
+		pieSliceTextStyle: {
+			color: 'black',
+			fontSize: 14
+		},
+		titleTextStyle: {
+			fontSize: 18,
+			bold: false
+		}
+	};
+	
+	const chart = new google.visualization.PieChart(document.getElementById('D4'));
+	chart.draw(data, options);
+};
+
+function drawPoliticsDonutByo() {
+	const data = google.visualization.arrayToDataTable([
+		['Gender', 'Hours per Day'],
+		['Male',     9],
+		['Female',      19]
+	]);
+
+	const options = { 
+		chartArea: {
+			width: '70%',
+			height: '70%',
+		},
+		title: 'Gender of Office Holders in Political Networks',
+		pieHole: 0.4,
+		slices: {
+			0: { color: '#f15b28' },
+			1: { color: '#7ebe42' }
+		},
+		legend: {
+			position: 'bottom',
+			textStyle: {
+				fontSize: 16
+			}
+		},
+		pieSliceTextStyle: {
+			color: 'black',
+			fontSize: 14
+		},
+		titleTextStyle: {
+			fontSize: 18,
+			bold: false
+		}
+	};
+	
+	const chart = new google.visualization.PieChart(document.getElementById('D4'));
+	chart.draw(data, options);
+};
+
+function drawPoliticsDonutGwe() {
+	const data = google.visualization.arrayToDataTable([
+		['Gender', 'Hours per Day'],
+		['Male',     44],
+		['Female',      22]
+	]);
+
+	const options = { 
+		chartArea: {
+			width: '70%',
+			height: '70%',
+		},
+		title: 'Gender of Office Holders in Political Networks',
+		pieHole: 0.4,
+		slices: {
+			0: { color: '#f15b28' },
+			1: { color: '#7ebe42' }
+		},
+		legend: {
+			position: 'bottom',
+			textStyle: {
+				fontSize: 16
+			}
+		},
+		pieSliceTextStyle: {
+			color: 'black',
+			fontSize: 14
+		},
+		titleTextStyle: {
+			fontSize: 18,
+			bold: false
+		}
+	};
+	
+	const chart = new google.visualization.PieChart(document.getElementById('D4'));
+	chart.draw(data, options);
+};
+
+function drawPoliticsDonutMut() {
+	const data = google.visualization.arrayToDataTable([
+		['Gender', 'Hours per Day'],
+		['Male',     13],
+		['Female',      16]
+	]);
+
+	const options = { 
+		chartArea: {
+			width: '70%',
+			height: '70%',
+		},
+		title: 'Gender of Office Holders in Political Networks',
+		pieHole: 0.4,
+		slices: {
+			0: { color: '#f15b28' },
+			1: { color: '#7ebe42' }
+		},
+		legend: {
+			position: 'bottom',
+			textStyle: {
+				fontSize: 16
+			}
+		},
+		pieSliceTextStyle: {
+			color: 'black',
+			fontSize: 14
+		},
+		titleTextStyle: {
+			fontSize: 18,
+			bold: false
+		}
+	};
+	
+	const chart = new google.visualization.PieChart(document.getElementById('D4'));
+	chart.draw(data, options);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+//Function to update charts based on user selection
+function changeCharts() {
+	document.getElementById('d1').remove();
+	if (this.classList.contains('menu__item--yellow')) {
+			drawScoreSummaryStackedBar();
+	}	else if (this.classList.contains('menu__item--red')) {
+			drawPoliticsStackedBar();
+	}	else if (this.classList.contains('menu__item--green')) {
+			drawEconomyStackedBar();
+	}	else if (this.classList.contains('menu__item--grey')) {
+			drawSocialStackedBar();
+	}
+};
+*/
+
 /*
 //Radar charts in summary section
       google.charts.load('49', {'packages': ['vegachart']}).then(loadCharts);
