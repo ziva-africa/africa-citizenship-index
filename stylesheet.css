@@ -11,22 +11,15 @@ html {
 }
 
 body {
-	/*height: 100%;
-	background-color: #e4a924;
-	transition: background-color 0.55s;
-	will-change: background-color;
-	margin: 0;*/
+	margin: 0;
 }
 
 /*Create parent div to hold everything */
 
 .madzibaba {
-	/*height: 600px; */
-	/*width: 790px;*/
 	height: 100%; 
 	width: 100%;	
-	margin: auto; 
-	background-color: #e4a924;
+	background-color: #7e8c95;
 	transition: background-color 0.55s;
 	will-change: background-color;
 }
@@ -85,10 +78,12 @@ body {
 	100% {width: 6.8rem;}
 }
 
-.menu__item--active.menu__item--yellow { background: #fabe2b; }
-.menu__item--active.menu__item--red { background: #f15b28; } 
-.menu__item--active.menu__item--green { background: #7ebe42; } 
 .menu__item--active.menu__item--grey { background: #9aa5ac; }
+.menu__item--active.menu__item--yellow { background: #fabe2b; }
+.menu__item--active.menu__item--red { background: #f15b28; }
+.menu__item--active.menu__item--green { background: #7ebe42; }
+.menu__item--active.menu__item--purple { background: #c152da; }
+
 
 .menu__item svg {
 	fill: #a6a6a6;
@@ -142,58 +137,74 @@ a:active {
 
 /* Column container for data vizualizations*/
 .container {  
-	display: flex;
-	flex-wrap: wrap;
+	/*display: flex;
+	flex-wrap: wrap;*/
+	margin: 0;	
+	background-color: rgba(255, 255, 255, 0.8);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23bfbfbf' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
+/* Create visualization containers for charts and text */
+.viz-div {
+	background-color: rgba(255, 255, 255, 1);
+	padding: 5px;
+	height: 500px;
+	width: 800px;
+	margin: auto; 
+	text-align: center;
+}
+
+/* div to contain drop down selector */
+.selector-div {
+	height: 30px;
+	/*width: 100%;
+	text-align: center;*/
+}
+
 
 /* Create two equal columns that sits next to each other */
 /* Main column */
+/*
 .left {
 	flex: 45%;
-	/*border-style: solid;
-	border-color: black;*/
 	padding: 5px;
 }
-
+*/
 /* Sidebar/left column */
+/*
 .right {
 	flex: 45%;
-	/*border-style: solid;
-	border-color: black;*/
 	padding: 5px;
 }
-
+*/
 /* div container to hold left data viz*/
+/*
 .D1-D2 {
 	background-color: white;
-	/*border-style: solid;
-	border-color: black;*/
-	/*width: 100%;*/
 	padding: 5px;
-	height: 440px;
+	/*height: 440px;*/
+	/*
 	text-align: center;
 }
-
+*/
+/*
 .D3-D4 {
 	background-color: white;
-	/*border-style: solid;
-	border-color: black;*/
-	/*width: 100%;*/
 	padding: 5px;
-	height: 410px;
+	/*height: 410px;*/
+	/*
 	text-align: center;
 }
-
+*/
 
 /* div to contain drop down selector */
-.D5-selector {
+/*
+.D5-D6-selector {
 	height: 30px;
 	width: 100%;
-	/*background-color: white;
-	border-style: solid;
-	border-color: black;*/
 	text-align: center;
 }
+*/
 
 /* Footer */
 .row-footer {  
@@ -201,6 +212,7 @@ a:active {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	height: 6.8rem;
 }
 
 .footer-left {
@@ -208,16 +220,12 @@ a:active {
 	padding-left: 10px;
 	font-size: 10px;
 	text-align: left;
-	/*border-style: solid;
-	border-color: black;*/
 }
 
 .footer-right {
 	flex: 25%;
 	padding-right: 10px;
 	text-align: left;
-	/*border-style: solid;
-	border-color: black;*/
 }
 
 .score-label {
@@ -225,7 +233,7 @@ a:active {
 	color: black; 
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make navigation menu stack on top of one another */
+/* Responsive layout - when the screen is less than 790px wide, make navigation menu stack on top of one another */
 @media screen and (max-width: 790px) {
 	.madzibaba {
 		width: 100%; 
