@@ -35,7 +35,7 @@ for (let i = 0; i < menuItems.length; i++) {
 //Function to run on button click to change active menu item, background colour and heading text
 function changeColour() {
 	if (!this.classList.contains('menu__item--active')) {
-		document.querySelector('.madzibaba').style.backgroundColor = `#${this.getAttribute('data-background')}`;
+		document.querySelector('.dashboard-container').style.backgroundColor = `#${this.getAttribute('data-background')}`;
 		document.querySelector('h1').remove();
 		menuItemActive.classList.remove('menu__item--active');
 	
@@ -44,14 +44,16 @@ function changeColour() {
 			heading.innerHTML = 'Survey';
 		} else if (this.classList.contains('summary')) {
 			heading.innerHTML = 'Summary';
-		} else if (this.classList.contains('menu__item--red')) {
+		} else if (this.classList.contains('politics')) {
 			heading.innerHTML = 'Politics';
-		} else if (this.classList.contains('menu__item--green')) {
+		} else if (this.classList.contains('economy')) {
 			heading.innerHTML = 'Economy';
-		} else if (this.classList.contains('menu__item--yellow')) {
+		} else if (this.classList.contains('social')) {
 			heading.innerHTML = 'Social';
-		} else if (this.classList.contains('menu__item--purple')) {
+		} else if (this.classList.contains('giving')) {
 			heading.innerHTML = 'Giving';
+		} else if (this.classList.contains('digital-citizenship')) {
+			heading.innerHTML = 'Digital Citizenship';
 		}
 		this.appendChild(heading);
 		this.classList.add('menu__item--active');
@@ -71,28 +73,32 @@ Code for the changing layout based on user selection
 
 //Function to change layout based on user selection
 function changeLayout() {
-	//Change layout when moving from colour to colour
-	if (!this.classList.contains('menu__item--grey')) {
-		//Create div for city selector and variable selector
-		const variableSelector = document.createElement('div');
-		variableSelector.setAttribute('class', 'selector-div');
-		variableSelector.setAttribute('id', 'D6');
-		document.querySelector('.menu').appendChild(variableSelector);
+	//Check if selector-div exists
+	
+	if (!this.classList.contains('menu__item--grey') && !document.querySelector('.selector-div')) {
+		//If selector-div does not exist - create it when clicking on non-grey menu items
+		const selectDiv = document.createElement('div');
+		selectDiv.setAttribute('class', 'selector-div');
+		document.querySelector('.viz-container').prepend(selectDiv);
 		
-		const citySelector = document.createElement('div');
-		citySelector.setAttribute('class', 'selector-div');
-		citySelector.setAttribute('id', 'D5');
-		document.querySelector('.menu').appendChild(citySelector);
+		//create select drop down for variables//
+		const variableSelect = document.createElement('div');
+		variableSelect.setAttribute('id', 'D2');
+		document.querySelector('.selector-div').appendChild(variableSelect);
+		
+		//create select drop down for cities//
+		const citySelect = document.createElement('div');
+		citySelect.setAttribute('id', 'D3');
+		document.querySelector('.selector-div').appendChild(citySelect);
 		
 		//Add dropdown city menu
-		document.getElementById('D5').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
+		document.getElementById('D2').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
 		
 		//Add dropdown variable menu 
-		document.getElementById('D6').innerHTML = '<select name="variable" id="variable" onchange="changeCharts()"><option value="membership">Membership in Networks</option><option value="frequency">Frequency of Meetings</option><option value="democracy">Democracy in Networks</option><option value="gender">Gender Diversity</option><option value="methods">Methods of Interaction</option><option value="discrimination">Discrimination</option></select>'
+		document.getElementById('D3').innerHTML = '<select name="variable" id="variable" onchange="changeCharts()"><option value="membership">Membership in Networks</option><option value="frequency">Frequency of Meetings</option><option value="democracy">Democracy in Networks</option><option value="gender">Gender Diversity</option><option value="methods">Methods of Interaction</option><option value="discrimination">Discrimination</option></select>'
 		
 	} else if (this.classList.contains('menu__item--grey')) {
-		document.getElementById('D5').remove();
-		document.getElementById('D6').remove();
+		document.querySelector('.selector-div').remove();
 	}
 };
 

@@ -1,45 +1,63 @@
-html {
-	height: 100%;
-	font-size: 1.3vw;
-}
-
-/* To prevent the menu items from becoming oversized */
-@media (min-width: 768px) {
-	html {
-		font-size: 60%;
-	}
-}
-
-body {
-	margin: 0;
-}
-
-/*Create parent div to hold everything */
-
-.madzibaba {
-	height: 100%; 
-	width: 100%;	
+.dashboard-container {
+	display: flex; 
+	height: 600px; 
+	flex-flow: row nowrap; 
+	justify-content: center; 
+	align-items: center; 
 	background-color: #7e8c95;
 	transition: background-color 0.55s;
 	will-change: background-color;
 }
 
-/* Style the top navigation bar */
-.menu {
+/*Container for drop down selectors and data vizualizations*/
+.viz-container {
+	width: 75%;
+	margin: 5px;	
 	display: flex;
+	flex-flow: column wrap; 
+	align-items: center;
+	justify-content: center;	
+}
+
+/*Div for charts and text*/
+.viz-div {
+	height: 540px;
+	width: 100%;
+	text-align: center;
+	background-color: white; 
+}
+
+/*div to contain drop down selector*/
+.selector-div {
+	height: 20px;
+	width: 100%;
+	margin-bottom: 10px;
+	display: flex; 
+	flex-flow: row nowrap; 
+	justify-content: center; 
+	align-items: center; 
+}
+
+.selector-div > div {
+	margin: 10px; 
+}
+
+/*CSS for nav menu div, menu items and links*/
+.menu {
+	width: 20%; 
+	margin: 5px;	
+	display: flex;
+	flex-flow: column wrap; 
 	align-items: center;
 	justify-content: center;
 }
 
 .menu__item {
-	width: 6.8rem;
-	height: 6.8rem;
-	border-radius: 10rem;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
 	background: #f3f3f3;
-	display: inline-block;
-	margin-left: 0.88rem;
-	margin-top: 0.88rem; 
-	margin-bottom: 0.88rem;
+	margin: 5px;
 	animation-name: close;
 	animation-duration: 0s;
 	will-change: width background-color;
@@ -51,31 +69,27 @@ body {
 	box-shadow: 0px 1px rgba(0,0,0, 0.1);
 }
 
-.menu__item:first-child {
-	margin-left: 0;
-}
-
 .menu__item--animate {
 	animation-duration: 0.5s;
 }
 
 .menu__item--active {
-	width: 13.6rem;
+	width: 190px;
 	animation-name: open;
 }
 
 @keyframes open {
-	0% {width: 6.8rem;}
-	40% {width: 14.8rem;}
-	80% {width: 13.6rem;}
-	100% {width: 13.6rem;}
+	0% {width: 60px;}
+	40% {width: 210px;}
+	80% {width: 190px;}
+	100% {width: 190px;}
 }
 
 @keyframes close {
-	0% {width: 13.6rem;}
-	40% {width: 5.6rem;}
-	80% {width: 6.8rem;}
-	100% {width: 6.8rem;}
+	0% {width: 190px;}
+	40% {width: 40px;}
+	80% {width: 60px;}
+	100% {width: 60px;}
 }
 
 .menu__item--active.menu__item--grey { background: #9aa5ac; }
@@ -84,11 +98,10 @@ body {
 .menu__item--active.menu__item--green { background: #7ebe42; }
 .menu__item--active.menu__item--purple { background: #c152da; }
 
-
 .menu__item svg {
 	fill: #a6a6a6;
-	width: 3.6rem;
-	height: 3.6rem;
+	width: 35px;
+	height: 35px;
 	transtiion: fill 0.55s;
 	will-change: fill;
 }
@@ -133,141 +146,4 @@ a:active {
 	outline: none;
 	text-decoration: none;
 	color: black;
-}
-
-/* Column container for data vizualizations*/
-.container {  
-	/*display: flex;
-	flex-wrap: wrap;*/
-	margin: 0;	
-	background-color: rgba(255, 255, 255, 0.8);
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23bfbfbf' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* Create visualization containers for charts and text */
-.viz-div {
-	background-color: rgba(255, 255, 255, 1);
-	padding: 5px;
-	height: 500px;
-	width: 800px;
-	margin: auto; 
-	text-align: center;
-}
-
-/* div to contain drop down selector */
-.selector-div {
-	height: 30px;
-	/*width: 100%;
-	text-align: center;*/
-}
-
-
-/* Create two equal columns that sits next to each other */
-/* Main column */
-/*
-.left {
-	flex: 45%;
-	padding: 5px;
-}
-*/
-/* Sidebar/left column */
-/*
-.right {
-	flex: 45%;
-	padding: 5px;
-}
-*/
-/* div container to hold left data viz*/
-/*
-.D1-D2 {
-	background-color: white;
-	padding: 5px;
-	/*height: 440px;*/
-	/*
-	text-align: center;
-}
-*/
-/*
-.D3-D4 {
-	background-color: white;
-	padding: 5px;
-	/*height: 410px;*/
-	/*
-	text-align: center;
-}
-*/
-
-/* div to contain drop down selector */
-/*
-.D5-D6-selector {
-	height: 30px;
-	width: 100%;
-	text-align: center;
-}
-*/
-
-/* Footer */
-.row-footer {  
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	height: 6.8rem;
-}
-
-.footer-left {
-	flex: 65%;
-	padding-left: 10px;
-	font-size: 10px;
-	text-align: left;
-}
-
-.footer-right {
-	flex: 25%;
-	padding-right: 10px;
-	text-align: left;
-}
-
-.score-label {
-	font-family: Arial;
-	color: black; 
-}
-
-/* Responsive layout - when the screen is less than 790px wide, make navigation menu stack on top of one another */
-@media screen and (max-width: 790px) {
-	.madzibaba {
-		width: 100%; 
-		height: 100%;
-	}
-	
-	.dropbtn {
-		font-size: 14px; 
-	}
-	
-	.dropdown-content {
-		font-size: 12px; 
-	}
-	
-	.container {   
-		flex-direction: column;
-	}
-	.menu__item {
-		margin-left: 0.44rem;
-		margin-top: 0.44rem; 
-		margin-bottom: 0.44rem;
-	}
-	.menu__item--active {
-		width: 27.2rem;
-	}
-	@keyframes open {
-		0% {width: 13.6rem;}
-		40% {width: 29.6rem;}
-		80% {width: 27.2rem;}
-		100% {width: 27.2rem;}
-	}
-	.menu__item svg {
-		width: 4.8rem;
-		height: 4.8rem;
-	}
-	
 }
