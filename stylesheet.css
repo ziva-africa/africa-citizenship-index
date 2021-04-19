@@ -9,7 +9,7 @@
 	will-change: background-color;
 }
 
-/*Container for drop down selectors and data vizualizations*/
+/*Container for drop down selectors, text, images and data vizualizations*/
 .viz-container {
 	width: 75%;
 	margin: 5px;	
@@ -19,16 +19,54 @@
 	justify-content: center;	
 }
 
-/*Div for charts and text*/
-.viz-div {
-	height: 540px;
-	width: 100%;
-	text-align: center;
+/*Section below contains styling for divs within each section of the dashboard*/
+/*Main div for summary, politics, economics, social, giving, and digital citizenship*/
+.sm-p-e-s-g-dc-1 {
+	height: 500px;
+	width: 95%;
+	margin: 5px;
 	background-color: white; 
 }
 
-/*div to contain drop down selector*/
-.selector-div {
+/*Survey Section parent div*/
+.sv-1 {
+	height: 500px;
+	width: 95%;
+	margin: 5px;
+	display: flex;
+	flex-flow: column wrap; 
+	align-items: center;
+	justify-content: center;
+	text-align: center; 
+	background-color: white;
+}
+
+/*Survey Section child divs*/
+.sv-2 {
+	width: 100%;
+}
+
+.sv-3 {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap; 
+	align-items: center;
+	justify-content: center;
+}
+
+.sv-4 {
+	width: 40%;
+	margin: 10px;
+}
+
+.sv-5 {
+	width: 50%;
+	margin: 20px;
+}
+
+/*divs to contain drop down selectors*/
+/*parent div*/
+.s-1 {
 	height: 20px;
 	width: 100%;
 	margin-bottom: 10px;
@@ -36,10 +74,21 @@
 	flex-flow: row nowrap; 
 	justify-content: center; 
 	align-items: center; 
+	text-align: center; 
 }
 
-.selector-div > div {
-	margin: 10px; 
+/*child divs*/
+.city {
+	width: 50%;
+}
+
+.variable {
+	width: 50%;
+}
+
+/*Child div for city selector in summary section*/
+.city-sm {
+	width: 100%;
 }
 
 /*CSS for nav menu div, menu items and links*/
@@ -110,14 +159,6 @@
 	fill: #fffdfe;
 }
 
-h1 {
-	color: black;
-	font-family: Arial;
-	font-weight: bold;
-	font-size: 14px;
-	padding: 3px;
-}
-
 a {
 	outline: none;
 	text-decoration: none;
@@ -146,4 +187,30 @@ a:active {
 	outline: none;
 	text-decoration: none;
 	color: black;
+}
+
+/*Text styling*/
+h1 {
+	color: black;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 34px;
+	padding: 6px;
+}
+
+h3 {
+	color: black;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 3px;
+}
+
+p {
+	color: black;
+	font-family: Arial;
+	font-size: 14px;
+	padding: 3px;
+	margin: 10px;
+	line-height: 200%;
 }

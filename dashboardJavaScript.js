@@ -13,10 +13,6 @@ google.charts.load('current', {'packages':['gauge']});
 //Load donut chart library
 google.charts.load('current', {packages:['corechart']});
 
-//Draw stacked bar score summary
-//google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
-
-
 /*  
 **********
 Code for the changing colour of the navigation bar 
@@ -36,10 +32,10 @@ for (let i = 0; i < menuItems.length; i++) {
 function changeColour() {
 	if (!this.classList.contains('menu__item--active')) {
 		document.querySelector('.dashboard-container').style.backgroundColor = `#${this.getAttribute('data-background')}`;
-		document.querySelector('h1').remove();
+		document.querySelector('h3').remove();
 		menuItemActive.classList.remove('menu__item--active');
 	
-		const heading = document.createElement('h1');
+		const heading = document.createElement('h3');
 		if (this.classList.contains('survey')) {
 			heading.innerHTML = 'Survey';
 		} else if (this.classList.contains('summary')) {
@@ -73,32 +69,86 @@ Code for the changing layout based on user selection
 
 //Function to change layout based on user selection
 function changeLayout() {
-	//Check if selector-div exists
+	//Create "check" variables to use in if statement
+	const vSelectCheck = document.querySelector('.variable');
+	const sv1Check = document.querySelector('.sv-1');
+	const citySmCheck = document.querySelector('.city-sm');
 	
-	if (!this.classList.contains('menu__item--grey') && !document.querySelector('.selector-div')) {
-		//If selector-div does not exist - create it when clicking on non-grey menu items
+	//Check if user is in survey AND clicks on politics, economy, social, giving, or digital citizenship
+	if ((!this.classList.contains('survey') && !this.classList.contains('summary')) && (typeof(sv1Check) != 'undefined' && sv1Check != null)) {
+		//remove sv-1 div
+		document.querySelector('.sv-1').remove();
+		//create drop down selectors for cities and variables
 		const selectDiv = document.createElement('div');
-		selectDiv.setAttribute('class', 'selector-div');
+		selectDiv.setAttribute('class', 's-1');
 		document.querySelector('.viz-container').prepend(selectDiv);
-		
-		//create select drop down for variables//
+		//create select drop down for cities
+		const citySelect = document.createElement('div');
+		citySelect.setAttribute('class', 'city');
+		document.querySelector('.s-1').appendChild(citySelect);
+		//create select drop down for variables
 		const variableSelect = document.createElement('div');
-		variableSelect.setAttribute('id', 'D2');
-		document.querySelector('.selector-div').appendChild(variableSelect);
-		
+		variableSelect.setAttribute('class', 'variable');
+		document.querySelector('.s-1').appendChild(variableSelect);
+		//Add dropdown city menu
+		document.querySelector('.city').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
+		//Add dropdown variable menu 
+		document.querySelector('.variable').innerHTML = '<select name="variable" id="variable" onchange="changeCharts()"><option value="membership">Membership in Networks</option><option value="frequency">Frequency of Meetings</option><option value="democracy">Democracy in Networks</option><option value="gender">Gender Diversity</option><option value="methods">Methods of Interaction</option><option value="discrimination">Discrimination</option></select>'		
+		//create sm-p-e-s-g-dc-1 div 
+		const smpesgdc1Div = document.createElement('div');
+		smpesgdc1Div.setAttribute('class', 'sm-p-e-s-g-dc-1');
+		document.querySelector('.viz-container').appendChild(smpesgdc1Div);
+	//Check if user is in survey AND clicks on summary
+	} else if (this.classList.contains('summary') && (typeof(sv1Check) != 'undefined' && sv1Check != null)) {
+		document.querySelector('.sv-1').remove();
+		//create drop down selector for cities
+		const selectDiv = document.createElement('div');
+		selectDiv.setAttribute('class', 's-1');
+		document.querySelector('.viz-container').prepend(selectDiv);
 		//create select drop down for cities//
 		const citySelect = document.createElement('div');
-		citySelect.setAttribute('id', 'D3');
-		document.querySelector('.selector-div').appendChild(citySelect);
-		
+		citySelect.setAttribute('class', 'city-sm');
+		document.querySelector('.s-1').appendChild(citySelect);
 		//Add dropdown city menu
-		document.getElementById('D2').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
-		
+		document.querySelector('.city-sm').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
+		//create sm-p-e-s-g-dc-1 div 
+		const smpesgdc1Div = document.createElement('div');
+		smpesgdc1Div.setAttribute('class', 'sm-p-e-s-g-dc-1');
+		document.querySelector('.viz-container').appendChild(smpesgdc1Div);
+	//Check if user is in summary AND clicks on survey
+	} else if (this.classList.contains('survey') && (typeof(citySmCheck) != 'undefined' && citySmCheck != null)) {
+		document.querySelector('.sm-p-e-s-g-dc-1').remove();
+		document.querySelector('.s-1').remove();
+		document.querySelector('.viz-container').innerHTML = '<div class="sv-1"><div class="sv-2"><h1>The Africa Citizenship Survey</h1></div><div class="sv-3"><div class="sv-4"><img src="africa_map.png" alt="Africa Map" width="324px" height="360px"></div><div class="sv-5"><p>Citizenship is a multi-faceted concept. It is about more than voting in elections. The African Citizenship Survey aims to understand the way in which citizens interact with each other in economic, social-support focused and political networks. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div>'
+	//Check if user is in summary AND clicks on politics, economy, social, giving, or digital citizenship
+	} else if ((!this.classList.contains('survey') || !this.classList.contains('summary')) && (typeof(citySmCheck) != 'undefined' && citySmCheck != null)) {
+		document.querySelector('.city-sm').remove();
+		//create select drop down for cities
+		const citySelect = document.createElement('div');
+		citySelect.setAttribute('class', 'city');
+		document.querySelector('.s-1').appendChild(citySelect);
+		//create select drop down for variables
+		const variableSelect = document.createElement('div');
+		variableSelect.setAttribute('class', 'variable');
+		document.querySelector('.s-1').appendChild(variableSelect);
+		//Add dropdown city menu
+		document.querySelector('.city').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
 		//Add dropdown variable menu 
-		document.getElementById('D3').innerHTML = '<select name="variable" id="variable" onchange="changeCharts()"><option value="membership">Membership in Networks</option><option value="frequency">Frequency of Meetings</option><option value="democracy">Democracy in Networks</option><option value="gender">Gender Diversity</option><option value="methods">Methods of Interaction</option><option value="discrimination">Discrimination</option></select>'
-		
-	} else if (this.classList.contains('menu__item--grey')) {
-		document.querySelector('.selector-div').remove();
+		document.querySelector('.variable').innerHTML = '<select name="variable" id="variable" onchange="changeCharts()"><option value="membership">Membership in Networks</option><option value="frequency">Frequency of Meetings</option><option value="democracy">Democracy in Networks</option><option value="gender">Gender Diversity</option><option value="methods">Methods of Interaction</option><option value="discrimination">Discrimination</option></select>'		
+	//Check if user is in politics, economy, social, giving, or digital citizenship AND clicks on survey
+	} else if (this.classList.contains('survey') && (typeof(vSelectCheck) != 'undefined' && vSelectCheck != null)) {
+		document.querySelector('.sm-p-e-s-g-dc-1').remove();
+		document.querySelector('.s-1').remove();
+		document.querySelector('.viz-container').innerHTML = '<div class="sv-1"><div class="sv-2"><h1>The Africa Citizenship Survey</h1></div><div class="sv-3"><div class="sv-4"><img src="africa_map.png" alt="Africa Map" width="324px" height="360px"></div><div class="sv-5"><p>Citizenship is a multi-faceted concept. It is about more than voting in elections. The African Citizenship Survey aims to understand the way in which citizens interact with each other in economic, social-support focused and political networks. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div>'
+	//Check if user is in politics, economy, social, giving, or digital citizenship AND clicks on summary
+	} else if (this.classList.contains('summary') && (typeof(vSelectCheck) != 'undefined' && vSelectCheck != null)) {
+		document.querySelector('.s-1').innerHTML = '';
+		//create select drop down for cities//
+		const citySelect = document.createElement('div');
+		citySelect.setAttribute('class', 'city-sm');
+		document.querySelector('.s-1').appendChild(citySelect);
+		//Add dropdown city menu
+		document.querySelector('.city-sm').innerHTML = '<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="byo">Bulawayo</option><option value="gwe">Gweru</option><option value="mut">Mutare</option></select>'
 	}
 };
 
@@ -109,66 +159,64 @@ Code for the changing google charts based on user selection
 */
 
 function changeCharts() {
-	if (menuItemActive.classList.contains('survey')) {
-		//google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
-		document.getElementById('D1').innerHTML = ''
-		alert('Survey!');
-	} else if (menuItemActive.classList.contains('summary')) {
-		document.getElementById('D1').innerHTML = ''
-		alert('Summary!');
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'membership') { 
-		document.getElementById('D1').innerHTML = ''
+	if (menuItemActive.classList.contains('summary')) {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
+		google.charts.setOnLoadCallback(drawScoreSummaryStackedBar);
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'membership') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMembershipChart);
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'frequency') { 
-		document.getElementById('D1').innerHTML = ''
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'democracy') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'frequency') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'democracy') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDemocracyChart);
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'gender') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'gender') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawGenderChart);
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'methods') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'methods') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMethodsChart);
-	} else if (menuItemActive.classList.contains('menu__item--red') && document.getElementById('variable').value == 'discrimination') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'discrimination') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDiscriminationChart);
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'membership') { 
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'membership') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMembershipChart);
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'frequency') { 
-		document.getElementById('D1').innerHTML = ''
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'democracy') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'frequency') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'democracy') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDemocracyChart);
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'gender') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'gender') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawGenderChart);
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'methods') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'methods') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMethodsChart);
-	} else if (menuItemActive.classList.contains('menu__item--green') && document.getElementById('variable').value == 'discrimination') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('economy') && document.getElementById('variable').value == 'discrimination') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDiscriminationChart);
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'membership') { 
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'membership') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMembershipChart);
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'frequency') { 
-		document.getElementById('D1').innerHTML = ''
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'democracy') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'frequency') { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'democracy') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDemocracyChart);
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'gender') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'gender') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawGenderChart);
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'methods') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'methods') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMethodsChart);
-	} else if (menuItemActive.classList.contains('menu__item--yellow') && document.getElementById('variable').value == 'discrimination') {
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('social') && document.getElementById('variable').value == 'discrimination') {
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 		google.charts.setOnLoadCallback(drawDiscriminationChart);
-	} else if (menuItemActive.classList.contains('menu__item--purple')) { 
-		document.getElementById('D1').innerHTML = ''
+	} else if (menuItemActive.classList.contains('giving')) { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
+	} else if (menuItemActive.classList.contains('digital-citizenship')) { 
+		document.querySelector('.sm-p-e-s-g-dc-1').innerHTML = '';
 	}
 };
 
@@ -209,7 +257,7 @@ function drawScoreSummaryStackedBar() {
 		//colors: ['#f15b28', '#7ebe42', '#9aa5ac']
 	};
     
-	const scoreSummaryStackedBar = new google.visualization.BarChart(document.getElementById('D1'));
+	const scoreSummaryStackedBar = new google.visualization.BarChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 	scoreSummaryStackedBar.draw(data, options);
 };
 
@@ -242,7 +290,7 @@ function drawPoliticsGaugeHre() {
 	gaugeDiv.setAttribute('width', '270px');
 	gaugeDiv.setAttribute('style', 'display:inline-block; margin:0 auto;');
 	document.getElementById('D3').appendChild(gaugeDiv);
-	const politicsGaugeChart = new google.visualization.Gauge(document.getElementById('gauge-div'));
+	const politicsGaugeChart = new google.visualization.Gauge(document.querySelector('.sm-p-e-s-g-dc-1'));
 	politicsGaugeChart.draw(data, options);
 };
 
@@ -364,7 +412,7 @@ function drawMembershipChart() {
 		}
 	};
 
-	const chart = new google.visualization.BarChart(document.getElementById('D1'));
+	const chart = new google.visualization.BarChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 
 	chart.draw(view, options);
 };
@@ -440,7 +488,7 @@ function drawDemocracyChart() {
 		}
 	};
 	
-	const chart = new google.visualization.PieChart(document.getElementById('D1'));
+	const chart = new google.visualization.PieChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 	chart.draw(view, options);
 };
 
@@ -503,7 +551,7 @@ function drawGenderChart() {
 		}
 	};
 	
-	const chart = new google.visualization.PieChart(document.getElementById('D1'));
+	const chart = new google.visualization.PieChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 	chart.draw(view, options);
 };
 
@@ -573,7 +621,7 @@ function drawMethodsChart() {
 		}
 	};
 	
-	const chart = new google.visualization.PieChart(document.getElementById('D1'));
+	const chart = new google.visualization.PieChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 	chart.draw(view, options);
 };
 
@@ -692,7 +740,7 @@ function drawDiscriminationChart() {
 		}
 	};
 
-	const chart = new google.visualization.BarChart(document.getElementById('D1'));
+	const chart = new google.visualization.BarChart(document.querySelector('.sm-p-e-s-g-dc-1'));
 
 	chart.draw(view, options);
 };
