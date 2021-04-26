@@ -21,7 +21,7 @@
 
 /*Section below contains styling for divs within each section of the dashboard*/
 /*Main div for summary, politics, economics, social, giving, and digital citizenship*/
-.sm-p-e-s-g-dc-1 {
+.not-survey-parent {
 	height: 500px;
 	width: 95%;
 	margin: 5px;
@@ -29,44 +29,119 @@
 }
 
 /*Survey Section parent div*/
-.sv-1 {
+.survey-parent {
 	height: 500px;
 	width: 95%;
-	margin: 5px;
 	display: flex;
-	flex-flow: column wrap; 
+	flex-flow: row nowrap; 
 	align-items: center;
 	justify-content: center;
 	text-align: center; 
 	background-color: white;
 }
 
-/*Survey Section child divs*/
-.sv-2 {
+/*Survey Section child level 1 divs*/
+.survey-child-1-arrow {
+	width: 5%;
+	margin: 0;
+}
+
+.next, .prev {
+	cursor: pointer;
+	border-radius: 3px 0 0 3px;
+	transition: 0.6s ease;
+	color: black;
+	font-weight: bold;
+	font-size: 30px;
+	padding: 25%;
+}
+
+.prev {
+	border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+	color: white; 
+}
+
+
+.survey-child-1-1 {
+	width: 95%;
+	margin: 0;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;	
+}
+
+.survey-child-1-charts {
+	width: 95%;
+	margin: 0;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;	
+}
+
+/*Survey Section child level 2 divs*/
+.survey-child-2-1 {
 	width: 100%;
 }
 
-.sv-3 {
-	width: 100%;
+.survey-child-2-2 {
+	width: 90%;
 	display: flex;
 	flex-flow: row nowrap; 
 	align-items: center;
 	justify-content: center;
 }
 
-.sv-4 {
+.survey-child-2-charts-1 {
+	height: 230px;
+	width: 45%;
+	margin: 5px;
+}
+
+.survey-child-2-charts-2 {
+	height: 230px;
+	width: 45%;
+	margin: 5px;
+}
+
+.survey-child-2-charts-3 {
+	height: 230px;
+	width: 45%;
+	margin: 5px;
+}
+
+.survey-child-2-charts-4 {
+	height: 230px;
+	width: 45%;
+	margin: 5px;
+}
+
+/*Survey Section child level 3 divs*/
+.survey-child-3-1 {
 	width: 40%;
 	margin: 10px;
 }
 
-.sv-5 {
+.survey-child-3-2 {
 	width: 50%;
 	margin: 20px;
 }
 
+/*For responsive images*/
+.responsive-img {
+	max-width: 100%;
+	height: auto;
+}
+
+
 /*divs to contain drop down selectors*/
 /*parent div*/
-.s-1 {
+.select-parent {
 	height: 20px;
 	width: 100%;
 	margin-bottom: 10px;
@@ -78,16 +153,16 @@
 }
 
 /*child divs*/
-.city {
+.select-child-city {
 	width: 50%;
 }
 
-.variable {
+.select-child-variable {
 	width: 50%;
 }
 
-/*Child div for city selector in summary section*/
-.city-sm {
+/*Child div for city selector without variable selector*/
+.select-child-city-only {
 	width: 100%;
 }
 
@@ -196,6 +271,7 @@ h1 {
 	font-weight: bold;
 	font-size: 34px;
 	padding: 6px;
+	margin: 0;
 }
 
 h3 {
