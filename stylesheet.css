@@ -20,16 +20,21 @@
 }
 
 /*Section below contains styling for divs within each section of the dashboard*/
-/*Main div for summary, politics, economics, social, giving, and digital citizenship*/
-.not-survey-parent {
+/*Main div for politics, economics, social and digital citizenship*/
+.others-parent {
 	height: 500px;
 	width: 95%;
 	margin: 5px;
-	background-color: white; 
+	display: flex;
+	flex-flow: row nowrap; 
+	align-items: center;
+	justify-content: center;
+	text-align: center; 
+	background-color: white;
 }
 
-/*Survey Section parent div*/
-.survey-parent {
+/*Survey & Summary Sections parent div*/
+.survey-summary-parent {
 	height: 500px;
 	width: 95%;
 	display: flex;
@@ -40,8 +45,8 @@
 	background-color: white;
 }
 
-/*Survey Section child level 1 divs*/
-.survey-child-1-arrow {
+/*Survey & Summary Sections child level 1 divs*/
+.survey-summary-child-1-arrow {
 	width: 5%;
 	margin: 0;
 }
@@ -66,7 +71,7 @@
 }
 
 
-.survey-child-1-1 {
+.survey-summary-child-1-1 {
 	width: 95%;
 	margin: 0;
 	display: flex;
@@ -75,7 +80,7 @@
 	justify-content: center;	
 }
 
-.survey-child-1-charts {
+.survey-summary-child-1-charts {
 	width: 95%;
 	margin: 0;
 	display: flex;
@@ -84,7 +89,7 @@
 	justify-content: center;	
 }
 
-/*Survey Section child level 2 divs*/
+/*Survey & Summary Sections child level 2 divs*/
 .survey-child-2-1 {
 	width: 100%;
 }
@@ -121,6 +126,42 @@
 	margin: 5px;
 }
 
+.summary-child-2-charts-1 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
+.summary-child-2-charts-2 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
+.summary-child-2-charts-3 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
+.summary-child-2-charts-4 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
+.summary-child-2-charts-5 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
+.summary-child-2-charts-6 {
+	height: 230px;
+	width: 30%;
+	margin: 2px;
+}
+
 /*Survey Section child level 3 divs*/
 .survey-child-3-1 {
 	width: 40%;
@@ -137,7 +178,6 @@
 	max-width: 100%;
 	height: auto;
 }
-
 
 /*divs to contain drop down selectors*/
 /*parent div*/
