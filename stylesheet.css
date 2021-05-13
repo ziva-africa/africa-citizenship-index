@@ -1,17 +1,15 @@
 .dashboard-container {
 	display: flex; 
 	height: 600px; 
-	flex-flow: row nowrap; 
+	flex-flow: column nowrap;
 	justify-content: center; 
 	align-items: center; 
-	background-color: #7e8c95;
-	transition: background-color 0.55s;
-	will-change: background-color;
+	background-color: white;
 }
 
 /*Container for drop down selectors, text, images and data vizualizations*/
 .viz-container {
-	width: 75%;
+	width: 80%;
 	margin: 5px;	
 	display: flex;
 	flex-flow: column wrap; 
@@ -22,7 +20,7 @@
 /*Section below contains styling for divs within each section of the dashboard*/
 /*Main div for politics, economics, social and digital citizenship*/
 .others-parent {
-	height: 500px;
+	height: 450px;
 	width: 95%;
 	margin: 5px;
 	display: flex;
@@ -35,7 +33,7 @@
 
 /*Survey & Summary Sections parent div*/
 .survey-summary-parent {
-	height: 500px;
+	height: 450px;
 	width: 95%;
 	display: flex;
 	flex-flow: row nowrap; 
@@ -103,61 +101,61 @@
 }
 
 .survey-child-2-charts-1 {
-	height: 230px;
+	height: 210px;
 	width: 45%;
 	margin: 5px;
 }
 
 .survey-child-2-charts-2 {
-	height: 230px;
+	height: 210px;
 	width: 45%;
 	margin: 5px;
 }
 
 .survey-child-2-charts-3 {
-	height: 230px;
+	height: 210px;
 	width: 45%;
 	margin: 5px;
 }
 
 .survey-child-2-charts-4 {
-	height: 230px;
+	height: 210px;
 	width: 45%;
 	margin: 5px;
 }
 
 .summary-child-2-charts-1 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
 
 .summary-child-2-charts-2 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
 
 .summary-child-2-charts-3 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
 
 .summary-child-2-charts-4 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
 
 .summary-child-2-charts-5 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
 
 .summary-child-2-charts-6 {
-	height: 230px;
+	height: 210px;
 	width: 30%;
 	margin: 2px;
 }
@@ -208,62 +206,31 @@
 
 /*CSS for nav menu div, menu items and links*/
 .menu {
-	width: 20%; 
+	width: 70%; 
 	margin: 5px;	
 	display: flex;
-	flex-flow: column wrap; 
+	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: center;
+	text-align: center; 
 }
 
 .menu__item {
-	width: 60px;
+	width: 200px;
 	height: 60px;
-	border-radius: 30px;
-	background: #f3f3f3;
 	margin: 5px;
-	animation-name: close;
-	animation-duration: 0s;
-	will-change: width background-color;
-	transition: background 0.55s;
 	vertical-align: top;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0px 1px rgba(0,0,0, 0.1);
-}
-
-.menu__item--animate {
-	animation-duration: 0.5s;
 }
 
 .menu__item--active {
-	width: 190px;
-	animation-name: open;
+	border-bottom: 5px solid #f15b28;
 }
-
-@keyframes open {
-	0% {width: 60px;}
-	40% {width: 210px;}
-	80% {width: 190px;}
-	100% {width: 190px;}
-}
-
-@keyframes close {
-	0% {width: 190px;}
-	40% {width: 40px;}
-	80% {width: 60px;}
-	100% {width: 60px;}
-}
-
-.menu__item--active.menu__item--grey { background: #9aa5ac; }
-.menu__item--active.menu__item--yellow { background: #fabe2b; }
-.menu__item--active.menu__item--red { background: #f15b28; }
-.menu__item--active.menu__item--green { background: #7ebe42; }
-.menu__item--active.menu__item--purple { background: #c152da; }
 
 .menu__item svg {
-	fill: #a6a6a6;
+	fill: #000;
 	width: 35px;
 	height: 35px;
 	transtiion: fill 0.55s;
@@ -271,7 +238,7 @@
 }
 
 .menu__item--active svg {
-	fill: #fffdfe;
+	fill: #f15b28;
 }
 
 a {
@@ -329,4 +296,80 @@ p {
 	padding: 3px;
 	margin: 10px;
 	line-height: 200%;
+}
+
+/*Section below contains styling for intro animation*/
+
+#animation-div {
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	-moz-animation: disappear 0s ease-in 10s forwards;
+	/* Firefox */
+	-webkit-animation: disappear 0s ease-in 10s forwards;
+	/* Safari and Chrome */
+	-o-animation: disappear 0s ease-in 10s forwards;
+	/* Opera */
+	animation: disappear 0s ease-in 10s forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+#animation-div svg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.circle {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: draw 5s linear forwards;
+	animation-delay: 3s;
+}
+
+.africa {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	-moz-animation: draw 4s linear, disappear-1 0s ease-in 6s forwards;
+	/* Firefox */
+	-webkit-animation: draw 4s linear, disappear-1 0s ease-in 6s forwards;
+	/* Safari and Chrome */
+	-o-animation: draw 4s linear, disappear-1 0s ease-in 6s forwards;
+	/* Opera */
+	animation: draw 4s linear, disappear-1 0s ease-in 6s forwards;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+@keyframes disappear {
+	to {
+		width:0;
+		height:0;
+		overflow:hidden;
+	}
+}
+
+@-webkit-keyframes disappear {
+	to {
+		width:0;
+		height:0;
+		visibility:hidden;
+	}
+}
+
+@keyframes draw {
+  to {
+	stroke-dashoffset: 0;
+  }
+}
+
+@keyframes disappear-1 {
+  to {
+	stroke-width: 0;
+  }
 }

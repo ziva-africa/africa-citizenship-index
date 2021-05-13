@@ -20,37 +20,17 @@ let menuItemActive = document.querySelector('.menu__item--active');
 
 //For loop to loop through menu items
 for (let i = 0; i < menuItems.length; i++) {
-	menuItems[i].addEventListener('click', changeColour);
+	menuItems[i].addEventListener('click', changeMenuActive);
 	menuItems[i].addEventListener('click', changeLayout);
 	menuItems[i].addEventListener('click', changeCharts);
 };
 
-//Function to run on button click to change active menu item, background colour and heading text
-function changeColour() {
+//Function to run on button click to change active menu item
+function changeMenuActive() {
 	if (!this.classList.contains('menu__item--active')) {
-		document.querySelector('.dashboard-container').style.backgroundColor = `#${this.getAttribute('data-background')}`;
-		document.querySelector('h3').remove();
 		menuItemActive.classList.remove('menu__item--active');
 	
-		const heading = document.createElement('h3');
-		if (this.classList.contains('survey')) {
-			heading.innerHTML = 'Survey';
-		} else if (this.classList.contains('summary')) {
-			heading.innerHTML = 'Summary';
-		} else if (this.classList.contains('politics')) {
-			heading.innerHTML = 'Politics';
-		} else if (this.classList.contains('economy')) {
-			heading.innerHTML = 'Economy';
-		} else if (this.classList.contains('social')) {
-			heading.innerHTML = 'Social';
-		} else if (this.classList.contains('digital-citizenship')) {
-			heading.innerHTML = 'Digital Citizenship';
-		}
-		this.appendChild(heading);
 		this.classList.add('menu__item--active');
-
-		menuItemActive.classList.add('menu__item--animate');
-		this.classList.add('menu__item--animate');
 
 		menuItemActive = this;
 	}
@@ -83,7 +63,7 @@ function changeLayout() {
 		summaryDiv.classList.add('summaryOne');
 		document.querySelector('.viz-container').appendChild(summaryDiv);
 		//create summary section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>This is the overall score section!</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';	
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>The overall scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score indicating an unhealthy level of citizenship and 100 is the highest possible score indicating a vibrant citizenship.</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	//To move TO politics
 	} else if ((this.classList.contains('politics')) && ((typeof(isPoliticsCheck) == 'undefined' || isPoliticsCheck == null))) {
 		//clear viz-container
@@ -189,7 +169,7 @@ function changeLayout() {
 		surveyDiv.classList.add('survey-div');
 		document.querySelector('.viz-container').appendChild(surveyDiv);
 		//create survey section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Survey</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept. It is about more than voting in elections. The African Citizenship Survey aims to understand the way in which citizens interact with each other in economic, social-support focused and political networks. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the way in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	}
 };
 
@@ -235,7 +215,7 @@ function surveySummaryLayout() {
 		surveyDiv.classList.add('survey-div');
 		document.querySelector('.viz-container').appendChild(surveyDiv);
 		//create survey section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Survey</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept. It is about more than voting in elections. The African Citizenship Survey aims to understand the way in which citizens interact with each other in economic, social-support focused and political networks. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the way in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	//Summary 2 layout
 	} else if (typeof(nextCheck) != 'undefined' && nextCheck != null && typeof(isSummaryCheck) != 'undefined' && isSummaryCheck != null) {
 		//clear viz-container
@@ -273,7 +253,7 @@ function surveySummaryLayout() {
 		summaryDiv.classList.add('summaryOne');
 		document.querySelector('.viz-container').appendChild(summaryDiv);
 		//create summary section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>This is the overall score section!</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>The overall scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score indicating an unhealthy level of citizenship and 100 is the highest possible score indicating a vibrant citizenship.</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 		google.charts.setOnLoadCallback(drawOverallScoreGaugeCharts);
 	}
 };
@@ -427,8 +407,8 @@ function drawNumberOfRespondentsChart() {
 	const options = {
 		title: 'Number of Survey Respondents',
 		chartArea: {
-			width: '90%',
-			height: '75%'
+			width: '70%',
+			height: '70%'
 		},
 		bar: {groupWidth: '80%'},
         legend: { position: 'none' },
@@ -602,8 +582,8 @@ function drawAgeSummaryChart() {
 	const options = {
 		title: 'Age of Respondents',
 		chartArea: {
-			width: '75%',
-			height: '75%'
+			width: '70%',
+			height: '70%'
 		},
 		bar: {groupWidth: '80%'},
         legend: { position: 'none' },
@@ -634,11 +614,11 @@ function drawAgeSummaryChart() {
 function drawOverallScoreGaugeCharts() {
 	const data = google.visualization.arrayToDataTable([
 		['City', 'Overall Score'],
-		['Harare', 51],
-		['Lilongwe', 71],
+		['Harare', 50],
+		['Lilongwe', 70],
 		['Nairobi', 66],
 		['Yaoundé', 67],
-		['Accra', 60]
+		['Accra', 59]
 	]);
 	
 	const viewOne = new google.visualization.DataView(data);
@@ -744,7 +724,7 @@ function drawPoliticsScoreSummaryBarChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Total Score', 51, 70, 64, 59, 63],
+		['Total', 'Total Score', 51, 70, 64, 59, 63],
 		['Politics', 'Membership', 33, 73, 47, 38, 3],
 		['Politics', 'Frequency', 40, 56, 19, 37, 39],
 		['Politics', 'Democracy', 65, 56, 61, 73, 74],
