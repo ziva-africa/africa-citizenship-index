@@ -63,7 +63,7 @@ function changeLayout() {
 		summaryDiv.classList.add('summaryOne');
 		document.querySelector('.viz-container').appendChild(summaryDiv);
 		//create summary section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>The overall scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score indicating an unhealthy level of citizenship and 100 is the highest possible score indicating a vibrant citizenship.</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>Scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score (unhealthy level of citizenship) and 100 is the highest possible score (vibrant citizenship).</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	//To move TO politics
 	} else if ((this.classList.contains('politics')) && ((typeof(isPoliticsCheck) == 'undefined' || isPoliticsCheck == null))) {
 		//clear viz-container
@@ -253,7 +253,7 @@ function surveySummaryLayout() {
 		summaryDiv.classList.add('summaryOne');
 		document.querySelector('.viz-container').appendChild(summaryDiv);
 		//create summary section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>The overall scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score indicating an unhealthy level of citizenship and 100 is the highest possible score indicating a vibrant citizenship.</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-charts"><div class="summary-child-2-charts-1"><p>Scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score (unhealthy level of citizenship) and 100 is the highest possible score (vibrant citizenship).</p></div><div class="summary-child-2-charts-2"></div><div class="summary-child-2-charts-3"></div><div class="summary-child-2-charts-4"></div><div class="summary-child-2-charts-5"></div><div class="summary-child-2-charts-6"></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 		google.charts.setOnLoadCallback(drawOverallScoreGaugeCharts);
 	}
 };
@@ -957,46 +957,48 @@ function drawMembershipChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
 		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Politics', 'Total in Political Networks', 100, 100, 196, 100, 100],
-		['Politics', 'Youth Group', 100, 100, 55, 100, 100],
-		['Politics', 'Women’s’ Group', 100, 100, 47, 100, 100],
-		['Politics', 'Political Party', 100, 100, 86, 100, 100],
-		['Politics', 'Joint Public Petition', 100, 100, 5, 100, 100],
-		['Politics', 'Online Based Civic Coalition', 100, 100, 9, 100, 100],
-		['Politics', 'Campaign Group', 100, 100, 31, 100, 100],
-		['Politics', 'Residents Associations', 100, 100, 31, 100, 100],
-		['Politics', 'Local Peace Committees', 100, 100, 11, 100, 100],
-		['Politics', 'Social Movements', 100, 100, 23, 100, 100],
+		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 13],
+		['Politics', 'Youth Group', 32, 56, 55, 77, 6],
+		['Politics', 'Women’s’ Group', 36, 89, 47, 37, 4],
+		['Politics', 'Political Party', 85, 181, 86, 40, 4],
+		['Politics', 'Joint Public Petition', 4, 13, 5, 5, 1],
+		['Politics', 'Online Based Civic Coalition', 3, 9, 9, 1, 0],
+		['Politics', 'Campaign Group', 11, 117, 31, 13, 2],
+		['Politics', 'Residents Associations', 22, 20, 31, 10, 4],
+		['Politics', 'Local Peace Committees', 4, 24, 11, 5, 0],
+		['Politics', 'Social Movements', 13, 48, 23, 23, 3],
 		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Economy', 'Total in Economic Networks', 100, 100, 272, 100, 100],
-		['Economy', 'Multi-Level Marketing Schemes', 100, 100, 5, 100, 100],
-		['Economy', 'Housing Cooperative/Group', 100, 100, 4, 100, 100],
-		['Economy', 'Nhimbe/Humwe/Ilima (labour pooling group)', 100, 100, 11, 100, 100],
-		['Economy', 'Production Cooperative/Group', 100, 100, 2, 100, 100],
-		['Economy', 'Business Promotion Council', 100, 100, 6, 100, 100],
-		['Economy', 'Asset Pooling Group', 100, 100, 8, 100, 100],
-		['Economy', 'Common Property Group (natural resources)', 100, 100, 6, 100, 100],
-		['Economy', 'Buying Clubs', 100, 100, 12, 100, 100],
-		['Economy', 'Market Group/Platform (sell goods/services to each other)', 100, 100, 6, 100, 100],
-		['Economy', 'Business Mentoring/Training Group', 100, 100, 21, 100, 100],
-		['Economy', 'Marketing Cooperative/Group (jointly selling commodities)', 100, 100, 10, 100, 100],
-		['Economy', 'Savings and Lending Group', 100, 100, 107, 100, 100],
+		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 10],
+		['Economy', 'Multi-Level Marketing Schemes', 36, 12, 5, 6, 1],
+		['Economy', 'Housing Cooperative/Group', 50, 21, 4, 4, 0],
+		['Economy', 'Labour Pooling Group', 11, 29, 11, 23, 2],
+		['Economy', 'Production Cooperative/Group', 21, 55, 2, 12, 1],
+		['Economy', 'Business Promotion Council', 8, 28, 6, 6, 1],
+		['Economy', 'Asset Pooling Group', 8, 27, 8, 5, 0],
+		['Economy', 'Common Property Group', 8, 26, 6, 6, 0],
+		['Economy', 'Buying Clubs', 38, 170, 12, 9, 0],
+		['Economy', 'Market Group/Platform', 63, 65, 6, 64, 9],
+		['Economy', 'Business Mentoring/Training Group', 9, 56, 21, 14, 3],
+		['Economy', 'Marketing Cooperative/Group', 12, 69, 10, 14, 1],
+		['Economy', 'Savings and Lending Group', 47, 167, 107, 168, 4],
 		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Social', 'Total in Social Networks', 100, 100, 288, 100, 100],
-		['Social', 'Alumni Association', 100, 100, 8, 100, 100],
-		['Social', 'Entertainment Group (dance, choir etc)', 100, 100, 8, 100, 100],
-		['Social', 'Sporting Association', 100, 100, 9, 100, 100],
-		['Social', 'Fellowship Group/Religious Group', 100, 100, 67, 100, 100],
-		['Social', 'Burial Societies', 100, 100, 22, 100, 100],
-		['Social', 'Parent/Teacher Group', 100, 100, 9, 100, 100],
-		['Social', 'Book/Reading Club', 100, 100, 1, 100, 100],
-		['Social', 'Community Development Association', 100, 100, 2, 100, 100],
-		['Social', 'Service Organisation or Club (e.g. Lions; Rotary)', 100, 100, 1, 100, 100],
-		['Social', 'Neighbourhood Watch Security', 100, 100, 2, 100, 100],
-		['Social', 'Communal Granary', 100, 100, 3, 100, 100],
-		['Social', 'Community Feeding Group', 100, 100, 1, 100, 100],
-		['Social', 'Community Foundation', 100, 100, 3, 100, 100]
+		['Social', 'Total in Social Networks', 220, 311, 288, 274, 34],
+		['Social', 'Alumni Association', 22, 16, 8, 39, 13],
+		['Social', 'Entertainment Group', 24, 63, 8, 41, 5],
+		['Social', 'Sporting Association', 26, 39, 9, 50, 9],
+		['Social', 'Fellowship Group/Religious Group', 161, 230, 67, 188, 37],
+		['Social', 'Burial Societies', 23, 9, 22, 2, 0],
+		['Social', 'Parent/Teacher Group', 26, 34, 9, 49, 9],
+		['Social', 'Book/Reading Club', 12, 16, 1, 8, 3],
+		['Social', 'Community Development Association', 7, 20, 2, 32, 4],
+		['Social', 'Service Organisation or Club', 8, 15, 1, 1, 3],
+		['Social', 'Neighbourhood Watch Security', 15, 22, 2, 4, 2],
+		['Social', 'Communal Granary', 5, 2, 3, 1, 0],
+		['Social', 'Community Feeding Group', 10, 8, 1, 1, 0],
+		['Social', 'Community Foundation', 4, 4, 3, 5, 5]
 	]);
+
+	data.sort([{column: 2, desc: true}]);
 
 	const view = new google.visualization.DataView(data);
 	
@@ -1044,7 +1046,7 @@ function drawMembershipChart() {
 		title: 'Membership in Networks ',
 		chartArea: {
 			width: '90%',
-			height: '75%'
+			height: '80%'
 		},
 		bar: {groupWidth: '80%'},
         legend: { position: 'none' },
@@ -1284,41 +1286,41 @@ function drawDiscriminationChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
 		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Politics', 'Total in Political Networks', 100, 100, 196, 100, 100],
-		['Politics', 'Language Barriers', 100, 100, 4, 100, 100],
-		['Politics', 'Prohibitive Membership Fees', 100, 100, 6, 100, 100],
-		['Politics', 'Defined Geographical Boundaries', 100, 100, 4, 100, 100],
-		['Politics', 'Gender', 100, 100, 1, 100, 100],
-		['Politics', 'Defined Religious Boundaries', 100, 100, 3, 100, 100],
-		['Politics', 'Defined Tribal Boundaries', 100, 100, 15, 100, 100],
-		['Politics', 'Age (too young or too old)', 100, 100, 15, 100, 100],
-		['Politics', 'Disability', 100, 100, 0, 100, 100],
-		['Politics', 'Legal', 100, 100, 3, 100, 100],
-		['Politics', 'Other', 100, 100, 4, 100, 100],
+		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 13],
+		['Politics', 'Language Barriers', 4, 4, 4, 4, 4],
+		['Politics', 'Prohibitive Membership Fees', 6, 6, 6, 6, 6],
+		['Politics', 'Defined Geographical Boundaries', 4, 4, 4, 4, 4],
+		['Politics', 'Gender', 1, 1, 1, 1, 1],
+		['Politics', 'Defined Religious Boundaries', 3, 3, 3, 3, 3],
+		['Politics', 'Defined Tribal Boundaries', 15, 15, 15, 15, 15],
+		['Politics', 'Age (too young or too old)', 15, 15, 15, 15, 15],
+		['Politics', 'Disability', 0, 0, 0, 0, 0],
+		['Politics', 'Legal', 3, 3, 3, 3, 3],
+		['Politics', 'Other', 4, 4, 4, 4, 4],
 		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Economy', 'Total in Economic Networks', 100, 100, 272, 100, 100],
-		['Economy', 'Language Barriers', 100, 100, 10, 100, 100],
-		['Economy', 'Prohibitive Membership Fees', 100, 100, 20, 100, 100],
-		['Economy', 'Defined Geographical Boundaries', 100, 100, 8, 100, 100],
-		['Economy', 'Gender', 100, 100, 6, 100, 100],
-		['Economy', 'Defined Religious Boundaries', 100, 100, 7, 100, 100],
-		['Economy', 'Defined Tribal Boundaries', 100, 100, 16, 100, 100],
-		['Economy', 'Age (too young or too old)', 100, 100, 25, 100, 100],
-		['Economy', 'Disability', 100, 100, 1, 100, 100],
-		['Economy', 'Legal', 100, 100, 10, 100, 100],
-		['Economy', 'Other', 100, 100, 6, 100, 100],
+		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 10],
+		['Economy', 'Language Barriers', 10, 10, 10, 10, 10],
+		['Economy', 'Prohibitive Membership Fees', 20, 20, 20, 20, 20],
+		['Economy', 'Defined Geographical Boundaries', 8, 8, 8, 8, 8],
+		['Economy', 'Gender', 6, 6, 6, 6, 6],
+		['Economy', 'Defined Religious Boundaries', 7, 7, 7, 7, 7],
+		['Economy', 'Defined Tribal Boundaries', 16, 16, 16, 16, 16],
+		['Economy', 'Age (too young or too old)', 25, 25, 25, 25, 25],
+		['Economy', 'Disability', 1, 1, 1, 1, 1],
+		['Economy', 'Legal', 10, 10, 10, 10, 10],
+		['Economy', 'Other', 6, 6, 6, 6, 6],
 		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Social', 'Total in Social Networks', 100, 100, 288, 100, 100],
-		['Social', 'Language Barriers', 100, 100, 10, 100, 100],
-		['Social', 'Prohibitive Membership Fees', 100, 100, 2, 100, 100],
-		['Social', 'Defined Geographical Boundaries', 100, 100, 1, 100, 100],
-		['Social', 'Gender', 100, 100, 2, 100, 100],
-		['Social', 'Defined Religious Boundaries', 100, 100, 3, 100, 100],
-		['Social', 'Defined Tribal Boundaries', 100, 100, 4, 100, 100],
-		['Social', 'Age (too young or too old)', 100, 100, 8, 100, 100],
-		['Social', 'Disability', 100, 100, 1, 100, 100],
-		['Social', 'Legal', 100, 100, 1, 100, 100],
-		['Social', 'Other', 100, 100, 5, 100, 100]
+		['Social', 'Total in Social Networks', 220, 311, 288, 274, 34],
+		['Social', 'Language Barriers', 10, 10, 10, 10, 10],
+		['Social', 'Prohibitive Membership Fees', 2, 2, 2, 2, 2],
+		['Social', 'Defined Geographical Boundaries', 1, 1, 1, 1, 1],
+		['Social', 'Gender', 2, 2, 2, 2, 2],
+		['Social', 'Defined Religious Boundaries', 3, 3, 3, 3, 3],
+		['Social', 'Defined Tribal Boundaries', 4, 4, 4, 4, 4],
+		['Social', 'Age (too young or too old)', 8, 8, 8, 8, 8],
+		['Social', 'Disability', 1, 1, 1, 1, 1],
+		['Social', 'Legal', 1, 1, 1, 1, 1],
+		['Social', 'Other', 5, 5, 5, 5, 5]
 	]);
 
 	data.sort([{column: 2, desc: true}]);
