@@ -169,7 +169,7 @@ function changeLayout() {
 		surveyDiv.classList.add('survey-div');
 		document.querySelector('.viz-container').appendChild(surveyDiv);
 		//create survey section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the way in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the ways in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	}
 };
 
@@ -215,7 +215,7 @@ function surveySummaryLayout() {
 		surveyDiv.classList.add('survey-div');
 		document.querySelector('.viz-container').appendChild(surveyDiv);
 		//create survey section content
-		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the way in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
+		document.querySelector('.survey-summary-parent').innerHTML = '<div class="survey-summary-child-1-1"><div class="survey-child-2-1"><h1>The Africa Citizenship Index</h1></div><div class="survey-child-2-2"><div class="survey-child-3-1"><img src="africa_map.png" alt="Africa Map" class="responsive-img" width="324px" height="360px"></div><div class="survey-child-3-2"><p>Citizenship is a multi-faceted concept that is shaped by the political, economic, and social life within a place. The African Citizenship Index aims to understand the ways in which ordinary people interact with each other in economic, social-support focused and political networks across the continent. The inaugural survey was conducted by SIVIO Institute in March – April 2021 across 5 African cities. <b>Harare, Zimbabwe</b> and <b>Lilongwe, Malawi</b> in Southern Africa, <b>Nairobi, Kenya</b> in East Africa <b>Yaoundé, Cameroon</b> in Central Africa and <b>Accra, Ghana</b> in West Africa.</p></div></div></div><div class="survey-summary-child-1-arrow"><a class="next" onclick="surveySummaryLayout();">&#10095;</a></div>';
 	//Summary 2 layout
 	} else if (typeof(nextCheck) != 'undefined' && nextCheck != null && typeof(isSummaryCheck) != 'undefined' && isSummaryCheck != null) {
 		//clear viz-container
@@ -1074,18 +1074,18 @@ function drawMembershipChart() {
 function drawFrequencyChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Daily', 50, 50, 50, 50, 50],
-		['Politics', 'Weekly', 50, 50, 50, 50, 50],
-		['Politics', 'Monthly', 50, 50, 50, 50, 50],
-		['Politics', 'Annually', 50, 50, 50, 50, 50],
-		['Economy', 'Daily', 50, 50, 50, 50, 50],
-		['Economy', 'Weekly', 50, 50, 50, 50, 50],
-		['Economy', 'Monthly', 50, 50, 50, 50, 50],
-		['Economy', 'Annually', 50, 50, 50, 50, 50],
-		['Social', 'Daily', 50, 50, 50, 50, 50],
-		['Social', 'Weekly', 50, 50, 50, 50, 50],
-		['Social', 'Monthly', 50, 50, 50, 50, 50],
-		['Social', 'Annually', 50, 50, 50, 50, 50]
+		['Politics', 'Daily', 36, 48, 5, 15, 5],
+		['Politics', 'Weekly', 47, 264, 48, 63, 48],
+		['Politics', 'Monthly', 78, 224, 144, 101, 144],
+		['Politics', 'Annually', 47, 19, 81, 30, 81],
+		['Economy', 'Daily', 79, 85, 14, 69, 14],
+		['Economy', 'Weekly', 83, 272, 98, 91, 98],
+		['Economy', 'Monthly', 131, 372, 199, 144, 199],
+		['Economy', 'Annually', 10, 15, 73, 28, 73],
+		['Social', 'Daily', 31, 43, 9, 51, 9],
+		['Social', 'Weekly', 202, 286, 178, 229, 178],
+		['Social', 'Monthly', 98, 137, 121, 94, 121],
+		['Social', 'Annually', 61, 8, 75, 42, 75]
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -1143,19 +1143,24 @@ function drawFrequencyChart() {
 function drawDemocracyChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Elections', 100, 100, 100, 100, 100],
-		['Politics', 'Appointed', 100, 100, 100, 100, 100],
-		['Politics', 'Hereditary', 100, 100, 100, 100, 100],
-		['Politics', 'Other', 100, 100, 100, 100, 100],
-		['Economy', 'Elections', 100, 100, 100, 100, 100],
-		['Economy', 'Appointed', 100, 100, 100, 100, 100],
-		['Economy', 'Hereditary', 100, 100, 100, 100, 100],
-		['Economy', 'I don\'t know', 100, 100, 100, 100, 100],
-		['Economy', 'Other', 100, 100, 100, 100, 100],
-		['Social', 'Elections', 100, 100, 100, 100, 100],
-		['Social', 'Appointed', 100, 100, 100, 100, 100],
-		['Social', 'Hereditary', 100, 100, 100, 100, 100],
-		['Social', 'Other', 100, 100, 100, 100, 100]
+		['Politics', 'Elections', 138, 311, 156, 152, 156],
+		['Politics', 'Appointed', 41, 124, 69, 23, 69],
+		['Politics', 'Hereditary', 5, 7, 3, 3, 3],
+		['Politics', 'Voluntary', 20, 99, 25, 20, 25],
+		['Politics', 'I don\'t know', 6, 14, 25, 10, 25],	
+		['Politics', 'Other', 1, 0, 0, 0, 0],
+		['Economy', 'Elections', 83, 260, 209, 188, 209],
+		['Economy', 'Appointed', 88, 164, 122, 54, 122],
+		['Economy', 'Hereditary', 8, 8, 9, 7, 9],
+		['Economy', 'Voluntary', 70, 267, 25, 39, 25],
+		['Economy', 'I don\'t know', 47, 44, 12, 27, 17],
+		['Economy', 'Other', 16, 0, 2, 17, 2],
+		['Social', 'Elections', 106, 204, 139, 243, 139],
+		['Social', 'Appointed', 130, 88, 182, 95, 182],
+		['Social', 'Hereditary', 10, 3, 4, 3, 4],
+		['Social', 'Voluntary', 45, 122, 28, 25, 28],
+		['Social', 'I don\'t know', 31, 44, 28, 42, 28],
+		['Social', 'Other', 8, 1, 2, 5, 2]
 	]);
 	
 	const view = new google.visualization.DataView(data);
