@@ -437,12 +437,12 @@ function drawNumberOfRespondentsChart() {
 function drawIncomeSummaryChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['> $$5,000', 9, 8, 0, 3, 8],
-		['$3,001 - $5,000', 3, 6, 1, 6, 25],
-		['$1,001 - $3,000', 21, 32, 15, 9, 134],
-		['$501 - $1,000', 33, 57, 44, 51, 219],
-		['$251 - $500', 84, 139, 125, 130, 46],
-		['< $250', 296, 161, 236, 203, 25]
+		['> $$5,000', 9, 8, 0, 3, 4],
+		['$3,001 - $5,000', 3, 6, 1, 6, 24],
+		['$1,001 - $3,000', 21, 32, 15, 9, 151],
+		['$501 - $1,000', 33, 57, 44, 51, 205],
+		['$251 - $500', 84, 139, 125, 130, 18],
+		['< $250', 296, 161, 236, 203, 11]
 	]);
 	
 	const view = new google.visualization.DataView(data);
@@ -499,10 +499,10 @@ function drawIncomeSummaryChart() {
 function drawEducationSummaryChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Tertiary', 212, 227, 193, 296, 337],
-		['Secondary', 215, 155, 181, 78, 109],
-		['Primary', 14, 15, 40, 23, 9],
-		['None', 5, 6, 7, 5, 2]
+		['Tertiary', 212, 227, 193, 296, 139],
+		['Secondary', 215, 155, 181, 78, 236],
+		['Primary', 14, 15, 40, 23, 27],
+		['None', 5, 6, 7, 5, 11]
 	]);
 	
 	const view = new google.visualization.DataView(data);
@@ -557,12 +557,12 @@ function drawAgeSummaryChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['18 - 25', 141, 78, 90, 154, 37],
-		['26 - 35', 125, 138, 98, 128, 104],
-		['36 - 45', 108, 111, 109, 81, 124],
-		['46 - 55', 49, 56, 80, 34, 123],
-		['56 - 65', 13, 16, 30, 5, 56],
-		['65+', 10, 4, 14, 0, 13]
+		['18 - 25', 141, 78, 90, 154, 3],
+		['26 - 35', 125, 138, 98, 128, 66],
+		['36 - 45', 108, 111, 109, 81, 210],
+		['46 - 55', 49, 56, 80, 34, 79],
+		['56 - 65', 13, 16, 30, 5, 27],
+		['65+', 10, 4, 14, 0, 28]
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -618,7 +618,7 @@ function drawOverallScoreGaugeCharts() {
 		['Lilongwe', 70],
 		['Nairobi', 66],
 		['Yaoundé', 67],
-		['Accra', 59]
+		['Accra', 70]
 	]);
 	
 	const viewOne = new google.visualization.DataView(data);
@@ -661,17 +661,17 @@ function drawOverallScoreGaugeCharts() {
 function drawPoliticsEconomySocialGaugeCharts() {
 	const dataPolitics = google.visualization.arrayToDataTable([
 		['Area', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 51, 70, 64, 59, 63]
+		['Politics', 51, 70, 64, 59, 75]
 	]);
 	
 	const dataEconomy = google.visualization.arrayToDataTable([
 		['Area', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Economy', 42, 66, 64, 69, 48]
+		['Economy', 42, 66, 64, 69, 55]
 	]);
 	
 	const dataSocial = google.visualization.arrayToDataTable([
 		['Area', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Social', 58, 75, 69, 75, 67]
+		['Social', 58, 75, 69, 75, 81]
 	]);
 	
 	const viewPolitics = new google.visualization.DataView(dataPolitics);
@@ -724,13 +724,13 @@ function drawPoliticsScoreSummaryBarChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Total', 'Total Score', 51, 70, 64, 59, 63],
-		['Politics', 'Membership', 33, 73, 47, 38, 3],
-		['Politics', 'Frequency', 40, 56, 19, 37, 39],
-		['Politics', 'Democracy', 65, 56, 61, 73, 74],
-		['Politics', 'Gender', 11, 88, 98, 100, 79],
-		['Politics', 'Discrimination', 89, 71, 82, 84, 85],
-		['Politics', 'Elections', 66, 78, 79, 22, 96]		
+		['Total', 'Total Score', 51, 70, 64, 59, 75],
+		['Politics', 'Membership', 33, 73, 47, 38, 16],
+		['Politics', 'Frequency', 40, 56, 19, 37, 88],
+		['Politics', 'Democracy', 65, 56, 61, 73, 65],
+		['Politics', 'Gender', 11, 88, 98, 100, 94],
+		['Politics', 'Discrimination', 89, 71, 82, 84, 92],
+		['Politics', 'Elections', 66, 78, 79, 22, 98]		
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -800,12 +800,12 @@ function drawEconomyScoreSummaryBarChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Economy', 'Total Score', 42, 66, 64, 69, 48],
-		['Economy', 'Membership', 40, 87, 65, 57, 2],
-		['Economy', 'Frequency', 55, 48, 29, 48, 67],
-		['Economy', 'Democracy', 27, 35, 52, 57, 19],
-		['Economy', 'Gender', 11, 87, 97, 98, 80],
-		['Economy', 'Discrimination', 76, 72, 78, 83, 70]
+		['Economy', 'Total Score', 42, 66, 64, 69, 55],
+		['Economy', 'Membership', 40, 87, 65, 57, 5],
+		['Economy', 'Frequency', 55, 48, 29, 48, 64],
+		['Economy', 'Democracy', 27, 35, 52, 57, 38],
+		['Economy', 'Gender', 11, 87, 97, 98, 72],
+		['Economy', 'Discrimination', 76, 72, 78, 83, 95]
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -875,13 +875,13 @@ function drawSocialScoreSummaryBarChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Social', 'Total Score', 58, 75, 69, 75, 67],
-		['Social', 'Membership', 49, 77, 68, 68, 7],
-		['Social', 'Frequency', 69, 69, 46, 67, 56],
-		['Social', 'Democracy', 32, 45, 36, 59, 61],
-		['Social', 'Gender', 27, 96, 95, 82, 88],
+		['Social', 'Total Score', 58, 75, 69, 75, 81],
+		['Social', 'Membership', 49, 77, 68, 68, 86],
+		['Social', 'Frequency', 69, 69, 46, 67, 97],
+		['Social', 'Democracy', 32, 45, 36, 59, 15],
+		['Social', 'Gender', 27, 96, 95, 82, 93],
 		['Social', 'Discrimination', 91, 90, 91, 87, 94],
-		['Social', 'Giving', 80, 83, 78, 86, 95]
+		['Social', 'Giving', 80, 83, 78, 86, 100]
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -956,46 +956,46 @@ function drawMembershipChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 13],
-		['Politics', 'Youth Group', 32, 56, 55, 77, 6],
-		['Politics', 'Women’s’ Group', 36, 89, 47, 37, 4],
-		['Politics', 'Political Party', 85, 181, 86, 40, 4],
+		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 64],
+		['Politics', 'Youth Group', 32, 56, 55, 77, 24],
+		['Politics', 'Women’s’ Group', 36, 89, 47, 37, 11],
+		['Politics', 'Political Party', 85, 181, 86, 40, 27],
 		['Politics', 'Joint Public Petition', 4, 13, 5, 5, 1],
-		['Politics', 'Online Based Civic Coalition', 3, 9, 9, 1, 0],
-		['Politics', 'Campaign Group', 11, 117, 31, 13, 2],
-		['Politics', 'Residents Associations', 22, 20, 31, 10, 4],
-		['Politics', 'Local Peace Committees', 4, 24, 11, 5, 0],
-		['Politics', 'Social Movements', 13, 48, 23, 23, 3],
-		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 10],
-		['Economy', 'Multi-Level Marketing Schemes', 36, 12, 5, 6, 1],
+		['Politics', 'Online Based Civic Coalition', 3, 9, 9, 1, 4],
+		['Politics', 'Campaign Group', 11, 117, 31, 13, 3],
+		['Politics', 'Residents Associations', 22, 20, 31, 10, 9],
+		['Politics', 'Local Peace Committees', 4, 24, 11, 5, 1],
+		['Politics', 'Social Movements', 13, 48, 23, 23, 1],
+		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 21],
+		['Economy', 'Multi-Level Marketing Schemes', 36, 12, 5, 6, 2],
 		['Economy', 'Housing Cooperative/Group', 50, 21, 4, 4, 0],
-		['Economy', 'Labour Pooling Group', 11, 29, 11, 23, 2],
+		['Economy', 'Labour Pooling Group', 11, 29, 11, 23, 0],
 		['Economy', 'Production Cooperative/Group', 21, 55, 2, 12, 1],
-		['Economy', 'Business Promotion Council', 8, 28, 6, 6, 1],
+		['Economy', 'Business Promotion Council', 8, 28, 6, 6, 0],
 		['Economy', 'Asset Pooling Group', 8, 27, 8, 5, 0],
 		['Economy', 'Common Property Group', 8, 26, 6, 6, 0],
 		['Economy', 'Buying Clubs', 38, 170, 12, 9, 0],
-		['Economy', 'Market Group/Platform', 63, 65, 6, 64, 9],
+		['Economy', 'Market Group/Platform', 63, 65, 6, 64, 1],
 		['Economy', 'Business Mentoring/Training Group', 9, 56, 21, 14, 3],
-		['Economy', 'Marketing Cooperative/Group', 12, 69, 10, 14, 1],
-		['Economy', 'Savings and Lending Group', 47, 167, 107, 168, 4],
-		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Social', 'Total in Social Networks', 220, 311, 288, 274, 34],
-		['Social', 'Alumni Association', 22, 16, 8, 39, 13],
-		['Social', 'Entertainment Group', 24, 63, 8, 41, 5],
-		['Social', 'Sporting Association', 26, 39, 9, 50, 9],
-		['Social', 'Fellowship Group/Religious Group', 161, 230, 67, 188, 37],
-		['Social', 'Burial Societies', 23, 9, 22, 2, 0],
-		['Social', 'Parent/Teacher Group', 26, 34, 9, 49, 9],
-		['Social', 'Book/Reading Club', 12, 16, 1, 8, 3],
-		['Social', 'Community Development Association', 7, 20, 2, 32, 4],
-		['Social', 'Service Organisation or Club', 8, 15, 1, 1, 3],
-		['Social', 'Neighbourhood Watch Security', 15, 22, 2, 4, 2],
+		['Economy', 'Marketing Cooperative/Group', 12, 69, 10, 14, 0],
+		['Economy', 'Savings and Lending Group', 47, 167, 107, 168, 12],
+		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Social', 'Total in Social Networks', 220, 311, 288, 274, 356],
+		['Social', 'Alumni Association', 22, 16, 8, 39, 26],
+		['Social', 'Entertainment Group', 24, 63, 8, 41, 3],
+		['Social', 'Sporting Association', 26, 39, 9, 50, 3],
+		['Social', 'Fellowship Group/Religious Group', 161, 230, 67, 188, 353],
+		['Social', 'Burial Societies', 23, 9, 22, 2, 2],
+		['Social', 'Parent/Teacher Group', 26, 34, 9, 49, 29],
+		['Social', 'Book/Reading Club', 12, 16, 1, 8, 0],
+		['Social', 'Community Development Association', 7, 20, 2, 32, 1],
+		['Social', 'Service Organisation or Club', 8, 15, 1, 1, 0],
+		['Social', 'Neighbourhood Watch Security', 15, 22, 2, 4, 0],
 		['Social', 'Communal Granary', 5, 2, 3, 1, 0],
 		['Social', 'Community Feeding Group', 10, 8, 1, 1, 0],
-		['Social', 'Community Foundation', 4, 4, 3, 5, 5]
+		['Social', 'Community Foundation', 4, 4, 3, 5, 1]
 	]);
 
 	data.sort([{column: 2, desc: true}]);
@@ -1074,18 +1074,18 @@ function drawMembershipChart() {
 function drawFrequencyChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Daily', 36, 48, 5, 15, 5],
-		['Politics', 'Weekly', 47, 264, 48, 63, 48],
-		['Politics', 'Monthly', 78, 224, 144, 101, 144],
-		['Politics', 'Annually', 47, 19, 81, 30, 81],
-		['Economy', 'Daily', 79, 85, 14, 69, 14],
-		['Economy', 'Weekly', 83, 272, 98, 91, 98],
-		['Economy', 'Monthly', 131, 372, 199, 144, 199],
-		['Economy', 'Annually', 10, 15, 73, 28, 73],
-		['Social', 'Daily', 31, 43, 9, 51, 9],
-		['Social', 'Weekly', 202, 286, 178, 229, 178],
-		['Social', 'Monthly', 98, 137, 121, 94, 121],
-		['Social', 'Annually', 61, 8, 75, 42, 75]
+		['Politics', 'Daily', 36, 48, 5, 15, 33],
+		['Politics', 'Weekly', 47, 264, 48, 63, 37],
+		['Politics', 'Monthly', 78, 224, 144, 101, 7],
+		['Politics', 'Annually', 47, 19, 81, 30, 3],
+		['Economy', 'Daily', 79, 85, 14, 69, 8],
+		['Economy', 'Weekly', 83, 272, 98, 91, 6],
+		['Economy', 'Monthly', 131, 372, 199, 144, 6],
+		['Economy', 'Annually', 10, 15, 73, 28, 2],
+		['Social', 'Daily', 31, 43, 9, 51, 85],
+		['Social', 'Weekly', 202, 286, 178, 229, 318],
+		['Social', 'Monthly', 98, 137, 121, 94, 11],
+		['Social', 'Annually', 61, 8, 75, 42, 3]
 	]);
 
 	const view = new google.visualization.DataView(data);
@@ -1143,24 +1143,24 @@ function drawFrequencyChart() {
 function drawDemocracyChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Elections', 138, 311, 156, 152, 156],
-		['Politics', 'Appointed', 41, 124, 69, 23, 69],
-		['Politics', 'Hereditary', 5, 7, 3, 3, 3],
-		['Politics', 'Voluntary', 20, 99, 25, 20, 25],
-		['Politics', 'I don\'t know', 6, 14, 25, 10, 25],	
-		['Politics', 'Other', 1, 0, 0, 0, 0],
-		['Economy', 'Elections', 83, 260, 209, 188, 209],
-		['Economy', 'Appointed', 88, 164, 122, 54, 122],
-		['Economy', 'Hereditary', 8, 8, 9, 7, 9],
-		['Economy', 'Voluntary', 70, 267, 25, 39, 25],
-		['Economy', 'I don\'t know', 47, 44, 12, 27, 17],
-		['Economy', 'Other', 16, 0, 2, 17, 2],
-		['Social', 'Elections', 106, 204, 139, 243, 139],
-		['Social', 'Appointed', 130, 88, 182, 95, 182],
-		['Social', 'Hereditary', 10, 3, 4, 3, 4],
-		['Social', 'Voluntary', 45, 122, 28, 25, 28],
-		['Social', 'I don\'t know', 31, 44, 28, 42, 28],
-		['Social', 'Other', 8, 1, 2, 5, 2]
+		['Politics', 'Elections', 138, 311, 156, 152, 52],
+		['Politics', 'Appointed', 41, 124, 69, 23, 23],
+		['Politics', 'Hereditary', 5, 7, 3, 3, 0],
+		['Politics', 'Voluntary', 20, 99, 25, 20, 3],
+		['Politics', 'I don\'t know', 6, 14, 25, 10, 1],	
+		['Politics', 'Other', 1, 0, 0, 0, 1],
+		['Economy', 'Elections', 83, 260, 209, 188, 8],
+		['Economy', 'Appointed', 88, 164, 122, 54, 10],
+		['Economy', 'Hereditary', 8, 8, 9, 7, 1],
+		['Economy', 'Voluntary', 70, 267, 25, 39, 1],
+		['Economy', 'I don\'t know', 47, 44, 12, 27, 1],
+		['Economy', 'Other', 16, 0, 2, 17, 0],
+		['Social', 'Elections', 106, 204, 139, 243, 63],
+		['Social', 'Appointed', 130, 88, 182, 95, 315],
+		['Social', 'Hereditary', 10, 3, 4, 3, 0],
+		['Social', 'Voluntary', 45, 122, 28, 25, 8],
+		['Social', 'I don\'t know', 31, 44, 28, 42, 32],
+		['Social', 'Other', 8, 1, 2, 5, 0]
 	]);
 	
 	const view = new google.visualization.DataView(data);
@@ -1224,12 +1224,12 @@ function drawDemocracyChart() {
 function drawGenderChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Female', 45, 2833, 1109, 818, 45],
-		['Politics', 'Male', 769, 2235, 1070, 818, 69],
-		['Economy', 'Female', 39, 2913, 1183, 910, 39],
-		['Economy', 'Male', 696, 2236, 1259, 874, 58],
-		['Social', 'Female', 183, 1824, 1401, 1116, 183],
-		['Social', 'Male', 1185, 1981, 1662, 1618, 231]
+		['Politics', 'Female', 45, 2833, 1109, 818, 323],
+		['Politics', 'Male', 769, 2235, 1070, 818, 287],
+		['Economy', 'Female', 39, 2913, 1183, 910, 78],
+		['Economy', 'Male', 696, 2236, 1259, 874, 44],
+		['Social', 'Female', 183, 1824, 1401, 1116, 1911],
+		['Social', 'Male', 1185, 1981, 1662, 1618, 1674]
 	]);
 	
 	const view = new google.visualization.DataView(data);
@@ -1290,42 +1290,42 @@ function drawDiscriminationChart() {
 
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 13],
-		['Politics', 'Language Barriers', 4, 4, 4, 4, 4],
-		['Politics', 'Prohibitive Membership Fees', 6, 6, 6, 6, 6],
-		['Politics', 'Defined Geographical Boundaries', 4, 4, 4, 4, 4],
-		['Politics', 'Gender', 1, 1, 1, 1, 1],
-		['Politics', 'Defined Religious Boundaries', 3, 3, 3, 3, 3],
-		['Politics', 'Defined Tribal Boundaries', 15, 15, 15, 15, 15],
-		['Politics', 'Age (too young or too old)', 15, 15, 15, 15, 15],
+		['Politics', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Politics', 'Total in Political Networks', 145, 293, 196, 152, 64],
+		['Politics', 'Language Barriers', 4, 4, 4, 4, 2],
+		['Politics', 'Prohibitive Membership Fees', 6, 6, 6, 6, 1],
+		['Politics', 'Defined Geographical Boundaries', 4, 4, 4, 4, 0],
+		['Politics', 'Gender', 1, 1, 1, 1, 0],
+		['Politics', 'Defined Religious Boundaries', 3, 3, 3, 3, 0],
+		['Politics', 'Defined Tribal Boundaries', 15, 15, 15, 15, 2],
+		['Politics', 'Age (too young or too old)', 15, 15, 15, 15, 0],
 		['Politics', 'Disability', 0, 0, 0, 0, 0],
-		['Politics', 'Legal', 3, 3, 3, 3, 3],
-		['Politics', 'Other', 4, 4, 4, 4, 4],
-		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 10],
-		['Economy', 'Language Barriers', 10, 10, 10, 10, 10],
-		['Economy', 'Prohibitive Membership Fees', 20, 20, 20, 20, 20],
-		['Economy', 'Defined Geographical Boundaries', 8, 8, 8, 8, 8],
-		['Economy', 'Gender', 6, 6, 6, 6, 6],
-		['Economy', 'Defined Religious Boundaries', 7, 7, 7, 7, 7],
-		['Economy', 'Defined Tribal Boundaries', 16, 16, 16, 16, 16],
-		['Economy', 'Age (too young or too old)', 25, 25, 25, 25, 25],
-		['Economy', 'Disability', 1, 1, 1, 1, 1],
-		['Economy', 'Legal', 10, 10, 10, 10, 10],
-		['Economy', 'Other', 6, 6, 6, 6, 6],
-		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 457],
-		['Social', 'Total in Social Networks', 220, 311, 288, 274, 34],
-		['Social', 'Language Barriers', 10, 10, 10, 10, 10],
-		['Social', 'Prohibitive Membership Fees', 2, 2, 2, 2, 2],
-		['Social', 'Defined Geographical Boundaries', 1, 1, 1, 1, 1],
-		['Social', 'Gender', 2, 2, 2, 2, 2],
-		['Social', 'Defined Religious Boundaries', 3, 3, 3, 3, 3],
-		['Social', 'Defined Tribal Boundaries', 4, 4, 4, 4, 4],
-		['Social', 'Age (too young or too old)', 8, 8, 8, 8, 8],
-		['Social', 'Disability', 1, 1, 1, 1, 1],
-		['Social', 'Legal', 1, 1, 1, 1, 1],
-		['Social', 'Other', 5, 5, 5, 5, 5]
+		['Politics', 'Legal', 3, 3, 3, 3, 0],
+		['Politics', 'Other', 4, 4, 4, 4, 0],
+		['Economy', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Economy', 'Total in Economic Networks', 177, 352, 272, 230, 21],
+		['Economy', 'Language Barriers', 10, 10, 10, 10, 0],
+		['Economy', 'Prohibitive Membership Fees', 20, 20, 20, 20, 0],
+		['Economy', 'Defined Geographical Boundaries', 8, 8, 8, 8, 0],
+		['Economy', 'Gender', 6, 6, 6, 6, 0],
+		['Economy', 'Defined Religious Boundaries', 7, 7, 7, 7, 0],
+		['Economy', 'Defined Tribal Boundaries', 16, 16, 16, 16, 0],
+		['Economy', 'Age (too young or too old)', 25, 25, 25, 25, 0],
+		['Economy', 'Disability', 1, 1, 1, 1, 0],
+		['Economy', 'Legal', 10, 10, 10, 10, 0],
+		['Economy', 'Other', 6, 6, 6, 6, 1],
+		['Social', 'Total Survey Respondents', 446, 403, 421, 402, 413],
+		['Social', 'Total in Social Networks', 220, 311, 288, 274, 356],
+		['Social', 'Language Barriers', 10, 10, 10, 10, 3],
+		['Social', 'Prohibitive Membership Fees', 2, 2, 2, 2, 1],
+		['Social', 'Defined Geographical Boundaries', 1, 1, 1, 1, 0],
+		['Social', 'Gender', 2, 2, 2, 2, 0],
+		['Social', 'Defined Religious Boundaries', 3, 3, 3, 3, 0],
+		['Social', 'Defined Tribal Boundaries', 4, 4, 4, 4, 0],
+		['Social', 'Age (too young or too old)', 8, 8, 8, 8, 15],
+		['Social', 'Disability', 1, 1, 1, 1, 3],
+		['Social', 'Legal', 1, 1, 1, 1, 0],
+		['Social', 'Other', 5, 5, 5, 5, 3]
 	]);
 
 	data.sort([{column: 2, desc: true}]);
@@ -1405,14 +1405,14 @@ function drawDiscriminationChart() {
 function drawVotingChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Area', 'Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Politics', 'Yes (I was registered, and I voted)', 294, 315, 334, 87, 440],
-		['Politics', 'No (I was registered but did not vote)', 23, 13, 20, 34, 9],
-		['Politics', 'No (I did not register)', 49, 43, 27, 251, 4],
-		['Politics', 'No (I could not find the polling station)', 5, 0, 1, 4, 1],
+		['Politics', 'Yes (I was registered, and I voted)', 294, 315, 334, 87, 406],
+		['Politics', 'No (I was registered but did not vote)', 23, 13, 20, 34, 3],
+		['Politics', 'No (I did not register)', 49, 43, 27, 251, 0],
+		['Politics', 'No (I could not find the polling station)', 5, 0, 1, 4, 0],
 		['Politics', 'No (My name did not appear on the voter\'s roll)', 4, 3, 4, 1, 0],
 		['Politics', 'No (I was prevented from voting)', 1, 7, 1, 2, 0],
-		['Politics', 'I was too young to vote', 38, 14, 19, 13, 1],
-		['Politics', 'N/A', 32, 8, 15, 10, 2]
+		['Politics', 'I was too young to vote', 38, 14, 19, 13, 0],
+		['Politics', 'N/A', 32, 8, 15, 10, 4]
 	]);
 	
 	const view = new google.visualization.DataView(data);
@@ -1476,8 +1476,8 @@ function drawVotingChart() {
 function drawGivingChart() {
 	const data = google.visualization.arrayToDataTable([
 		['Variable', 'Harare', 'Lilongwe', 'Nairobi', 'Yaoundé', 'Accra'],
-		['Yes, I did give', 359, 334, 327, 344, 434],
-		['No, did not give', 87, 69, 94, 58, 23]
+		['Yes, I did give', 359, 334, 327, 344, 411],
+		['No, did not give', 87, 69, 94, 58, 2]
 	]);
 	
 	const view = new google.visualization.DataView(data);
