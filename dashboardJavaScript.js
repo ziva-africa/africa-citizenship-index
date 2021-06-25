@@ -1,14 +1,11 @@
-/*  
-**********
-Load initial 'home page' google charts
-**********
-*/
-
 //Load 'Corechart' library
 google.charts.load('current', {packages:['corechart']});
 
 //Load gauge chart library
 google.charts.load('current', {'packages':['gauge']});
+
+//Redraw charts when window resizes (to make Google charts responsive)
+window.addEventListener("resize", changeCharts);
 
 /*  
 **********
@@ -296,7 +293,7 @@ function changeCharts() {
 		google.charts.setOnLoadCallback(drawIncomeSummaryChart);
 		google.charts.setOnLoadCallback(drawEducationSummaryChart);
 		google.charts.setOnLoadCallback(drawAgeSummaryChart);
-	}else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'membership') { 
+	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'membership') { 
 		document.querySelector('.others-parent').innerHTML = '';
 		google.charts.setOnLoadCallback(drawMembershipChart);
 	} else if (menuItemActive.classList.contains('politics') && document.getElementById('variable').value == 'frequency') { 
@@ -1002,11 +999,11 @@ function drawMembershipChart() {
 
 	const view = new google.visualization.DataView(data);
 	
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 	
@@ -1090,11 +1087,11 @@ function drawFrequencyChart() {
 
 	const view = new google.visualization.DataView(data);
 
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 		
@@ -1165,11 +1162,11 @@ function drawDemocracyChart() {
 	
 	const view = new google.visualization.DataView(data);
 	
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 	
@@ -1234,11 +1231,11 @@ function drawGenderChart() {
 	
 	const view = new google.visualization.DataView(data);
 	
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 	
@@ -1332,11 +1329,11 @@ function drawDiscriminationChart() {
 
 	const view = new google.visualization.DataView(data);
 	
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 	
@@ -1417,11 +1414,11 @@ function drawVotingChart() {
 	
 	const view = new google.visualization.DataView(data);
 	
-	if (menuItemActive.classList.contains('menu__item--red')) {
+	if (menuItemActive.classList.contains('politics')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Politics'}]));
-	} else if (menuItemActive.classList.contains('menu__item--green')) {
+	} else if (menuItemActive.classList.contains('economy')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Economy'}]));
-	} else if (menuItemActive.classList.contains('menu__item--yellow')) {
+	} else if (menuItemActive.classList.contains('social')) {
 		view.setRows(view.getFilteredRows([{column: 0, value: 'Social'}]));
 	}	
 	

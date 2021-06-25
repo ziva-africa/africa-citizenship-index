@@ -1,0 +1,161 @@
+html, body {
+	margin: 0;
+}
+
+.dashboard-container {
+	display: flex; 
+	flex-flow: column wrap;
+	align-items: center;
+	background-color: white;
+	font-family: 'TT Commons',Helvetica,Arial,sans-serif;
+	height: 100%;
+	margin: 0;
+}
+
+/*CSS for nav menu div, menu items and links*/
+.menu {
+	width: 100%;
+	margin: 0;
+	height: 60px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #9aa5ac;
+	display: flex;
+	flex-flow: row wrap;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #f15c27;
+	align-items: center; 
+	justify-content: space-between;
+}
+
+.menu svg {
+	fill: #f15c27;
+	width: 35px;
+	height: 35px;
+	margin: 10px;
+}
+
+.menu__item {
+	color: #374c5b;
+	display: none;
+}
+
+.menu__item--active {
+	color: #f15c27;
+}
+
+/*To complete svg for menu active design */
+.menu__item svg {
+	fill: #374c5b;
+	width: 35px;
+	height: 35px;
+	margin: 10px;
+	will-change: fill;
+}
+
+.menu__item--active svg {
+}
+/* To complete above */
+
+.exit {
+	position: absolute; 
+	top: 20px; 
+	right: 20px;
+	display: none;
+}
+
+.exit svg {
+	fill: none;
+	stroke: #f15c27;
+	stroke-width: 2;
+	width: 25px;
+	height: 25px;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: normal;
+	padding: 3px;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 3px;
+}
+
+a {
+	outline: none;
+	text-decoration: none;
+}
+
+a:visited {
+	outline: none;
+	text-decoration: none;
+}
+
+a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+a:hover {
+	outline: none;
+	text-decoration: none;
+}
+
+a:active {
+	outline: none;
+	text-decoration: none;
+}
+
+/*Container for drop down selectors, text, images and data vizualizations*/
+.viz-container {
+	width: 100%;
+	margin: 0;	
+	display: flex;
+	flex-flow: column wrap; 
+	align-items: center;
+	justify-content: center;	
+}
+
+.viz-container div {
+	width: 90%;
+	display: flex; 
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 5px 0 5px;
+}
+
+h1 {
+	margin: 5px;	
+}
+
+p {
+	margin: 5px; 
+}
+
+/*Style for city selector*/
+#city {
+	margin-right: 10px;
+}
+
+/*Style for footer*/
+.foot {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: 0;
+	display: flex; 
+	flex-flow: row nowrap;
+	align-items: center; 
+	justify-content: center;
+	background-color: #374c5b;
+	color: #ffffff;
+}
+
+.foot > p {
+	margin: 10px;
+}
