@@ -117,7 +117,7 @@ function changeLayout() {
 		//Make city-select reappear
 		citySelect.style.display = 'flex';		
 		//Create child divs 
-		for (let i = 0; i < 3; i ++) {
+		for (let i = 0; i < 4; i ++) {
 			let vizConChild = document.createElement('div');
 			vizConChild.id = 'viz-con-child-' + i;
 			document.querySelector('.viz-container').appendChild(vizConChild);
@@ -208,6 +208,7 @@ function changeCharts() {
 		google.charts.setOnLoadCallback(drawOverallScoreGaugeCharts);
 	} else if (menuItemActive.classList.contains('scores') && document.getElementById('score').value == 'pol') {
 		google.charts.setOnLoadCallback(drawPoliticsGaugeCharts);
+		//google.charts.setOnLoadCallback(drawPoliticsScoreSummaryBarChart);
 	} else if (menuItemActive.classList.contains('scores') && document.getElementById('score').value == 'eco') {
 		google.charts.setOnLoadCallback(drawEconomyGaugeCharts);
 	} else if (menuItemActive.classList.contains('scores') && document.getElementById('score').value == 'soc') {
@@ -249,7 +250,7 @@ function drawOverallScoreGaugeCharts() {
 	}
 
 	const options = {
-		width: '100%', height: 250,
+		width: '100%', height: 200,
 		redFrom: 85, redTo: 100,
 		yellowFrom:70, yellowTo: 85,
 		greenFrom: 55, greenTo: 70,
@@ -286,7 +287,7 @@ function drawPoliticsGaugeCharts() {
 	}
 	
 	const options = {
-		width: '100%', height: 250,
+		width: '100%', height: 200,
 		redFrom: 85, redTo: 100,
 		yellowFrom:70, yellowTo: 85,
 		greenFrom: 55, greenTo: 70,
@@ -323,7 +324,7 @@ function drawEconomyGaugeCharts() {
 	}
 	
 	const options = {
-		width: '100%', height: 250,
+		width: '100%', height: 200,
 		redFrom: 85, redTo: 100,
 		yellowFrom:70, yellowTo: 85,
 		greenFrom: 55, greenTo: 70,
@@ -360,7 +361,7 @@ function drawSocialGaugeCharts() {
 	}
 	
 	const options = {
-		width: '100%', height: 250,
+		width: '100%', height: 200,
 		redFrom: 85, redTo: 100,
 		yellowFrom:70, yellowTo: 85,
 		greenFrom: 55, greenTo: 70,
@@ -371,12 +372,6 @@ function drawSocialGaugeCharts() {
 	const chart = new google.visualization.Gauge(document.getElementById('viz-con-child-1'));
 	chart.draw(view, options);
 };
-
-
-
-
-
-
 
 //Sub score summary bar charts
 function drawPoliticsScoreSummaryBarChart() {
@@ -428,8 +423,10 @@ function drawPoliticsScoreSummaryBarChart() {
 	
 	const options = {
 		title: 'Politics Score Summary',
+		height: 200,
+		width: '80%',
 		chartArea: {
-			width: '90%',
+			width: '80%',
 			height: '75%'
 		},
 		bar: {groupWidth: '80%'},
@@ -450,7 +447,7 @@ function drawPoliticsScoreSummaryBarChart() {
 		}
 	};
 
-	const chart = new google.visualization.BarChart(document.querySelector('.summary-child-2-charts-4'));
+	const chart = new google.visualization.BarChart(document.getElementById('viz-con-child-3'));
 
 	chart.draw(view, options);
 };
