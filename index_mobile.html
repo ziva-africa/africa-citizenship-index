@@ -13,10 +13,9 @@
 			<div class="menu">
 				<a href="#" class="menu__button">
 					<svg viewBox="0 0 35 35" onclick="openMenu();">
-						<path d="m 0.81144499,24.372936 v 0.582404 3.344988 H 34.188555 v -3.927392 z m 2.5e-7,-8.836632 v 0.582404 3.344988 H 34.188555 v -3.927392 z m -2.5e-7,-8.836632 V 7.2820767 10.627064 H 34.188555 V 6.699672 Z" />
+						<path d="M 24.764968,24.41888 H 2.1329834 c -0.718819,0 -1.29750704,0.578688 -1.29750704,1.297506 v 1.262406 c 0,0.718819 0.57868804,1.297507 1.29750704,1.297507 H 24.764968 c 0.718819,0 1.297506,-0.578688 1.297506,-1.297507 v -1.262406 c 0,-0.718818 -0.578687,-1.297506 -1.297506,-1.297506 z m 8.15184,-8.836632 H 2.1329834 c -0.718819,0 -1.29750704,0.578688 -1.29750704,1.297506 v 1.262407 c 0,0.718818 0.57868804,1.297506 1.29750704,1.297506 H 32.916808 c 0.718819,0 1.297507,-0.578688 1.297507,-1.297506 v -1.262407 c 0,-0.718818 -0.578688,-1.297506 -1.297507,-1.297506 z m -8e-6,-8.8366311 H 2.1329754 c -0.718819,0 -1.29750704,0.5786879 -1.29750704,1.2975066 v 1.2624063 c 0,0.7188182 0.57868804,1.2975072 1.29750704,1.2975072 H 32.9168 c 0.718819,0 1.297507,-0.578689 1.297507,-1.2975072 V 8.0431235 c 0,-0.7188187 -0.578688,-1.2975066 -1.297507,-1.2975066 z" />
 					</svg>
 				</a>
-				<select name="city" id="city" onchange="changeCharts()"><option value="hre">Harare</option><option value="li">Lilongwe</option><option value="nai">Nairobi</option><option value="ya">Yaoundé</option><option value="acc">Accra</option></select>
 				<a href="#" class="menu__item scores menu__item--active" onclick="closeMenu();">
 					<h2>Scores</h2>
 				</a>
@@ -45,18 +44,21 @@
 			<!-- End of nav menu-->
 			<!-- Start of main dashboard display-->
 			<div class="viz-container">
-				<div id="viz-con-child-0" style="margin: 10px;">
-					<select name="score" id="score" onchange="changeCharts()"><option value="ove">Overall Score</option><option value="pol">Politics Score</option><option value="eco">Economy Score</option><option value="soc">Social Score</option></select>
+				<div class="options-choose-div" style="margin: 10px;">
+					<select name="city" id="city" onchange="changeCharts();" autocomplete="off"><option value="hre">Harare</option><option value="li">Lilongwe</option><option value="nai">Nairobi</option><option value="ya">Yaoundé</option><option value="acc">Accra</option></select>
+					<select name="score" id="score" onchange="changeCharts(); changeScoreText();" autocomplete="off"><option value="ove">Overall Score</option><option value="pol">Politics Score</option><option value="eco">Economy Score</option><option value="soc">Social Score</option></select>
 				</div>
-				<div id="viz-con-child-1" style="margin: 10px;"></div>
-				<div id="viz-con-child-2" style="margin: 10px;">
+				<div class="charts-and-text-div" id="viz-con-child-0" style="margin: 10px;"></div>
+				<div class="charts-and-text-div" id="viz-con-child-1" style="margin: 10px;">
 					<p>Scores for each city are calculated on a 0 – 100 scale where 0 is the lowest possible score (unhealthy level of citizenship) and 100 is the highest possible score (vibrant citizenship).</p>
 				</div>
+				<div class="charts-and-text-div" id="viz-con-child-2" style="margin: 10px;"></div>
 			</div>
 			<!-- End of main dashboard display-->
 			<!-- Start of footer-->
 			<div class="foot">
 				<p>Developed by SIVIO Institute</p>
+				<img src="sivio_logo.png" alt="SIVIO Logo" width="80" height="40"></img>
 			</div>
 			<!-- End of footer-->
 		</div>

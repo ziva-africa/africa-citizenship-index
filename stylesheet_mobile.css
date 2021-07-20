@@ -2,6 +2,10 @@ html, body {
 	margin: 0;
 }
 
+body {
+	padding-bottom: 40px; 
+}
+
 .dashboard-container {
 	display: flex; 
 	flex-flow: column wrap;
@@ -25,7 +29,7 @@ html, body {
 	text-transform: uppercase;
 	color: #f15c27;
 	align-items: center; 
-	justify-content: space-between;
+	justify-content: left;
 }
 
 .menu svg {
@@ -119,7 +123,7 @@ a:active {
 	justify-content: center;	
 }
 
-.viz-container div {
+.charts-and-text-div {
 	width: 90%;
 	display: flex; 
 	flex-flow: row wrap;
@@ -137,25 +141,38 @@ p {
 	margin: 5px; 
 }
 
+/*Div for city and variable selectors*/
+.options-choose-div {
+	/*width: 45%;*/
+	display: flex; 
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 5px 0 5px;
+}
+
 /*Style for city selector*/
-#city {
+#city, #score, #politics-variable, #economy-variable, #social-variable {
 	margin-right: 10px;
+	text-align: center; 
 }
 
 /*Style for footer*/
 .foot {
 	position: fixed;
 	bottom: 0;
+	height: 60px;
 	width: 100%;
-	margin: 0;
 	display: flex; 
 	flex-flow: row nowrap;
 	align-items: center; 
-	justify-content: center;
-	background-color: #374c5b;
-	color: #ffffff;
+	justify-content: space-between;
+	background-color: #ffffff;
+	border-top: 1px solid #9aa5ac;
+	color: #374c5b;
 }
 
-.foot > p {
+.foot > p, img {
 	margin: 10px;
 }
