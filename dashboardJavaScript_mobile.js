@@ -1,3 +1,5 @@
+//Testing git push...
+
 //Redraw charts when window resizes (to make Google charts responsive)
 //window.addEventListener("resize", clearVizContainer, changeLayout, changeCharts);
 
