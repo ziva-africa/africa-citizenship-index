@@ -124,7 +124,8 @@ a:active {
 }
 
 .charts-and-text-div {
-	width: 90%;
+	width: 290px;
+	height: 260px;
 	display: flex; 
 	flex-flow: row wrap;
 	align-items: center;
