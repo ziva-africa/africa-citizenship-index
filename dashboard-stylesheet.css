@@ -1,0 +1,289 @@
+/* Mobile first design, media querries at bottom change layout based on sreen size */
+
+/*BASE STYLING*/
+:root {
+	--navbar-bg-color: #ffffff;
+	--navbar-text-color: #374c5b;
+	--navbar-text-color-focus: #f15c27;
+	--navbar-height: 64px;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.6;
+}
+
+/*Class for centering things horizontally on the page*/
+.container {
+	max-width: 1000px;
+	padding-left: 1.4rem;
+	padding-right: 1.4rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*NAVIGATION MENU STYLES*/
+/*Outermost #navbar element styles*/
+#navbar {
+	position: fixed;
+	height: var(--navbar-height);
+	background-color: var(--navbar-bg-color);
+	left: 0;
+	right: 0;
+	border-bottom: 1px solid #9aa5ac;
+	z-index: 99;
+}
+
+/*Styles for nested container element*/
+.navbar-container {
+	display: flex;
+	justify-content: left;
+	height: 100%;
+	align-items: center;
+}
+
+/*Styles for navbar mobile menu*/
+#navbar-menu {
+	position: fixed;
+	top: var(--navbar-height);
+	bottom: 0;
+	/*transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;*/
+	opacity: 0;
+	visibility: hidden;
+	left: 0;
+	right: 0;
+}
+
+#navbar.opened #navbar-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+/*Styles for list of links*/
+.navbar-links {
+	list-style-type: none;
+	max-height: 0;
+	overflow: hidden;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	left: 0;
+	right: 0;
+	margin: 1.4rem;
+}
+
+#navbar.opened .navbar-links {
+	padding: 1em;
+	max-height: none;
+}
+
+/*Styles for navbar items*/
+.navbar-item {
+	margin: 0.4em;
+	/*display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;*/
+}
+
+.navbar-link svg {
+	display: none; 
+	fill: var(--navbar-text-color);
+	width: 35px;
+	height: 35px;
+}
+
+.navbar-link {
+	color: var(--navbar-text-color);
+	/*transition: color 0.2s ease-in-out;*/
+	text-decoration: none;
+	display: flex;
+	font-weight: bold;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0.4em 0.8em;
+}
+
+.navbar-link:hover {
+	color: var(--navbar-text-color-focus);
+}
+
+.navbar-link:hover svg {
+	fill: var(--navbar-text-color-focus);
+}
+
+.active {
+	color: var(--navbar-text-color-focus);
+}
+
+.active svg {
+	fill: var(--navbar-text-color-focus);
+}
+
+/*Menu button styles*/
+.navbar-toggle {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.icon-bar {
+	display: block;
+	width: 25px;
+	height: 4px;
+	margin: 2px;
+	border-radius: 2px;
+	transition: transform 0.2s ease-in-out;
+	background-color: var(--navbar-text-color-focus);
+}
+
+.navbar-toggle[aria-expanded='true'] .icon-bar:first-child,
+.navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+	position: absolute;
+	margin: 0;
+	width: 30px;
+}
+
+.navbar-toggle[aria-expanded='true'] .icon-bar:first-child {
+	transform: rotate(45deg);
+}
+
+.navbar-toggle[aria-expanded='true'] .icon-bar:nth-child(2) {
+	opacity: 0;
+}
+
+.navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+	transform: rotate(-45deg);
+}
+
+/*DIV FOR CHARTS AND TEXT STYLES*/
+/*Container for drop down selectors, text, images and data vizualizations*/
+.viz-container {
+	max-width: 850px;
+	padding-top: var(--navbar-height);
+	padding-bottom: var(--navbar-height);
+}
+
+.charts-and-text-parent {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.charts-and-text-div {
+	width: 270px;
+	height: 240px;
+	flex: 1 0 auto;
+	text-align: center;
+	display: flex;
+	/*align-items: center;*/
+	justify-content: center;
+}
+
+/*Div for city and variable selectors*/
+.options-choose-div {
+	width: 100%;
+	height: calc((var(--navbar-height))/2);
+	display: flex; 
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+/*Style for selectors*/
+#city, #score, #politics-variable, #economy-variable, #social-variable {
+	margin: 0 5px 0 5px;
+	text-align: center; 
+}
+
+/*FOOTER STYLES*/
+#footer {
+	position: fixed;
+	height: var(--navbar-height);
+	background-color: var(--navbar-bg-color);
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid #9aa5ac;
+}
+
+.footer-container {
+	height: 100%;
+	width: 100%;
+	display: flex; 
+	flex-flow: row nowrap;
+	align-items: center; 
+	justify-content: space-between;
+	color: #374c5b;
+}
+
+.footer-container p, img {
+	margin: 10px;
+}
+
+/*MEDIA QUERRIES*/
+/* For large devices (laptops/desktops, 992px and up)*/
+@media only screen and (min-width: 992px) {
+	.navbar-toggle {
+		display: none;
+	}
+
+	#navbar #navbar-menu,
+	#navbar.opened #navbar-menu {
+		visibility: visible;
+		opacity: 1;
+		position: static;
+		display: block;
+		height: 100%;
+	}
+
+	#navbar .navbar-links,
+	#navbar.opened .navbar-links {
+		margin: 0;
+		padding: 0;
+		box-shadow: none;
+		position: static;
+		flex-direction: row;
+		list-style-type: none;
+		max-height: max-content;
+		width: 100%;
+		height: 100%;
+	}
+
+	#navbar .navbar-link:last-child {
+		margin-right: 0;
+	}
+	
+	.navbar-container {
+		justify-content: center;
+	}
+	
+	.navbar-link {
+		padding: 0.4em 0.4em;
+	}
+	
+	.navbar-link svg {
+		display: block;
+		padding-right: 4px;
+	}
+}
+
